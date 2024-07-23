@@ -1,0 +1,26 @@
+.switchBox {
+  width: 100%;
+  height: 64px;
+  border-radius: 1px;
+  border-top: 1px solid #40434b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin-bottom: 5px;
+  transform: scale(0.999);
+  transition: 0.2s;
+  background: linear-gradient(180deg, #31343d 0%, #272a33 100%);
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(0.99);
+  }
+
+  .option {
+    font-weight: 500;
+    font-size: 16px;
+    color: #dee2e1;
+    text-shadow: 0 1px 1px 0 #0c0d1f;
+  }
+}

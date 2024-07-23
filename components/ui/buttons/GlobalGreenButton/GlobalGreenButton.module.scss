@@ -1,0 +1,44 @@
+.globalGreenButton {
+  position: relative;
+  border-radius: 2px;
+  display: block;
+  margin: 0 auto;
+  font-weight: 600;
+  font-size: 16px;
+  color: #f7fffc;
+  overflow: hidden;
+  text-shadow: 0 1px 1px 0 #0c0d1f;
+  box-shadow: 0 0 15px 0 rgba(38, 180, 119, 0.24),
+    inset 0 0 66px 0 rgba(47, 209, 136, 0.41);
+  background: linear-gradient(90deg, #6aa48b 0%, #70b795 50.5%, #5e9a81 100%);
+
+  transition: transform 0.2s ease-in-out 0s;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(0.98);
+    transform-origin: center center;
+  }
+
+  .value {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // margin-top: 1px;
+  }
+
+  .bottomLine {
+    position: absolute;
+    width: 250px;
+    height: 23px;
+    bottom: 0;
+    border-radius: 0 0 3px 3px;
+    box-shadow: inset 0 -2px 3px 0 #087b49,
+      inset 0 1px 1px 0 rgba(0, 0, 0, 0.07);
+    background: linear-gradient(90deg, #024129 0%, #00804f 50%, #004329 100%);
+    z-index: 0;
+  }
+}

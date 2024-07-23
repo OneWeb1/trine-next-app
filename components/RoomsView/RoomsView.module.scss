@@ -1,0 +1,270 @@
+.roomsView {
+  width: 100%;
+
+  .roomsHeader {
+    width: 100%;
+    height: 30px;
+    border: 0.5px solid rgba(255, 255, 255, 0.13);
+    background: rgba(37, 42, 64, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  .rooms {
+    .room {
+      position: relative;
+      width: 100%;
+      height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 0.5px solid;
+      border-image: linear-gradient(
+          to right,
+          #373946,
+          #cacae660,
+          #cacae660,
+          #cacae660,
+          #373946
+        )
+        47% 0%;
+      overflow: hidden;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out 0s;
+
+      &:hover {
+        transform: scale(0.99);
+        transform-origin: center center;
+      }
+
+      .rightWrapper {
+        position: absolute;
+        width: calc(100% - 90px);
+        height: 86px;
+        left: 90px;
+        z-index: 3;
+        background-color: #344057;
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 120%;
+          height: 160px;
+          left: -8px;
+          top: -50px;
+          background-color: #344057;
+          transform: rotate(-9deg);
+          box-shadow: -5px 0px 10px 10px rgba(0, 0, 0, 0.5);
+          z-index: 0;
+        }
+
+        .titleWrapper {
+          position: absolute;
+          width: calc(100% + 16px);
+          height: 25px;
+          left: -16px;
+          overflow: hidden;
+
+          &:before {
+            content: "";
+            position: absolute;
+            width: 12px;
+            height: 30px;
+            left: 3px;
+            background: linear-gradient(180deg, #78cda4 0%, #78eda4 100%);
+            transform: skew(9deg, 0deg);
+            z-index: 10;
+          }
+
+          &:after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 3px;
+            left: 16px;
+            bottom: -3px;
+            background: #78eda4;
+
+            transform: rotate(0.7deg);
+            z-index: 0;
+          }
+
+          .title {
+            position: absolute;
+            width: 100%;
+            height: 25px;
+            left: 10px;
+            background-color: #252a40;
+            padding: 0 10px;
+            padding-left: 12px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+            color: #87d9a8;
+            overflow: hidden;
+          }
+        }
+
+        .info {
+          position: absolute;
+          width: 100%;
+          height: calc(100% - 25px);
+          top: 25px;
+          padding: 0 6px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .leftChild {
+            margin-top: 12px;
+            display: flex;
+            align-items: left;
+            flex-direction: column;
+
+            .label {
+              font-weight: 600;
+              font-size: 10px;
+              color: #b0b5c6;
+              margin-top: -10px;
+            }
+
+            .playersInfo {
+              font-weight: 600;
+              font-size: 12px;
+              color: #b0b5c6;
+              text-shadow: 0 0px 1px #0c0d1f;
+              margin-top: 10px;
+              display: flex;
+              align-items: center;
+            }
+
+            .playersInfo img {
+              margin-right: 5px;
+            }
+          }
+
+          .rightChild {
+            font-size: 14px;
+
+            .label {
+              font-weight: 600;
+              font-size: 10px;
+              color: #b0b5c6;
+            }
+
+            .price {
+              font-weight: 700;
+              font-size: 25px;
+              background: linear-gradient(180deg, #fff 0%, #a2a2a2 100%);
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              text-shadow: 0 1px 1px 0 rgba(12, 13, 31, 0.36);
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.titleWrapperGreen {
+  &:before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 30px;
+    left: 3px;
+    background: linear-gradient(180deg, #78cda4 0%, #78eda4 100%) !important;
+    transform: skew(9deg, 0deg);
+    z-index: 10;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 3px;
+    left: 16px;
+    bottom: -3px;
+    background: #78eda4 !important;
+
+    transform: rotate(0.7deg);
+    z-index: 0;
+  }
+
+  .title {
+    color: #87d9a8 !important;
+  }
+}
+
+.titleWrapperBlue {
+  &:before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 30px;
+    left: 3px;
+    background: linear-gradient(180deg, #70aff1 0%, #7acbff 100%) !important;
+    transform: skew(9deg, 0deg);
+    z-index: 10;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 3px;
+    left: 16px;
+    bottom: -3px;
+    background: #7acbff !important;
+
+    transform: rotate(0.7deg);
+    z-index: 0;
+  }
+
+  .title {
+    color: #7acbff !important;
+  }
+}
+
+.titleWrapperViolet {
+  &:before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 30px;
+    left: 3px;
+    background: linear-gradient(180deg, #e560cc 0%, #fd73ea 100%) !important;
+    transform: skew(9deg, 0deg);
+    z-index: 10;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 3px;
+    left: 16px;
+    bottom: -3px;
+    background: #fd73ea !important;
+
+    transform: rotate(0.7deg);
+    z-index: 0;
+  }
+
+  .title {
+    color: #fd73ea !important;
+  }
+}

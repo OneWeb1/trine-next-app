@@ -1,0 +1,27 @@
+.login {
+  overflow: hidden;
+
+  .screen {
+    padding: 40px;
+    padding-bottom: 0px;
+
+    .bottomLinkWrapper {
+      font-weight: 600;
+      font-size: 14px;
+      color: #fff;
+      display: block;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .bottomText {
+      max-width: 200px;
+      display: block;
+      font-weight: 600;
+      font-size: 10px;
+      text-align: center;
+      color: #6c6b70;
+      margin: 0 auto;
+    }
+  }
+}

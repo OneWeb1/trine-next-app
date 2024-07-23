@@ -1,0 +1,101 @@
+.header {
+  position: fixed;
+  max-width: 400px;
+  width: 100%;
+  height: 55px;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0px);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background: linear-gradient(90deg, #1e1e23 0%, #252a40 49.5%, #201f27 100%);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid;
+  z-index: 5;
+  border-image: linear-gradient(
+      to right,
+      #373946,
+      #cacae6,
+      #cacae6,
+      #cacae6,
+      #373946
+    )
+    47% 0%;
+
+  .rightWrapper {
+    height: 34px;
+    border-radius: 50px;
+    box-shadow: inset 0 0 28px 0 rgba(0, 0, 0, 0.47);
+    background: rgba(47, 50, 62, 0.61);
+    display: flex;
+    align-items: center;
+    padding-left: 7px;
+    padding-right: 4px;
+
+    .moneyWrapper {
+      height: 20px;
+      padding-right: 2px;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      background-color: #22222a;
+      border-radius: 50px;
+
+      .money {
+        font-weight: 700;
+        font-size: 12px;
+        background: linear-gradient(180deg, #fff 0%, #a2a2a2 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin: 0px 5px;
+      }
+
+      .buttonAdd {
+        width: 16px;
+        height: 16px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        cursor: pointer;
+      }
+    }
+
+    .dropdown {
+      position: relative;
+      width: 42px;
+      height: 26px;
+      border-radius: 50px;
+      padding: 6px 2px;
+      display: flex;
+      align-items: center;
+      box-shadow: inset 0 0 8px 0 rgba(0, 0, 0, 0.43);
+      background: #22222a;
+      margin-left: 7px;
+      cursor: pointer;
+
+      .avatar {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.rotateStart {
+  transition: 0.1s;
+  margin-top: -0px;
+  transform: rotate(-180deg);
+}
+
+.rotateEnd {
+  transition: 0.1s;
+  margin-top: 3px;
+  transform: rotate(0deg);
+}

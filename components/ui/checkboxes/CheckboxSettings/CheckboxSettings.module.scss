@@ -1,0 +1,48 @@
+.checkbox {
+  width: 52px;
+  height: 24px;
+  background: #181621;
+  padding: 1px;
+  border-radius: 50px;
+  background: linear-gradient(#62d0a1, #409675, #357867);
+  border: 0.8px solid #000000;
+  cursor: pointer;
+  overflow: hidden;
+
+  .childBox {
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    padding: 3px;
+    background-color: #181621cd;
+    transition: 0.3s;
+
+    .circle {
+      width: 15px;
+      height: 15px;
+      background: #2bcc9b;
+      border-radius: 50%;
+      margin-top: -0.3px;
+      overflow: hidden;
+      transition: 0.2s;
+
+      .top {
+        width: 100%;
+        height: 50%;
+        background: #23e58e;
+      }
+    }
+  }
+}
+
+.enable {
+  margin-left: calc(100% - 15px);
+}
+
+.disable {
+  margin-left: 0;
+}
+
+.enableBg {
+  background: #181621 !important;
+}
