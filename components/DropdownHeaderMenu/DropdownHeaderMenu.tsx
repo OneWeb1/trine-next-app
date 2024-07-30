@@ -60,7 +60,7 @@ const DropdownHeaderMenu: FC<DropdownHeaderMenuProps> = ({ close }) => {
                 </div>
               </div>
             </div>
-            <Link href="/admin">
+            <Link href="/admin/accounts">
               <div className={styles.dropdownMenuItem}>
                 <Image
                   className={styles.avatar}

@@ -1,0 +1,30 @@
+.navigation {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0px;
+
+  .title {
+    font-weight: 600;
+    font-size: 15px;
+    color: #fff;
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+
+    .button {
+      width: 31px;
+      height: 31px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 10px;
+
+      background-image: url("/assets/admin/nav/border.svg");
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,122 @@
+.overflowWrapper {
+  position: absolute;
+  width: 204px;
+  height: 302px;
+  top: 30px;
+  left: 0px;
+  overflow: hidden;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  z-index: 10;
+  cursor: default;
+
+  .dropdownMenu {
+    position: absolute;
+    width: 204px;
+    height: 292px;
+    top: 10px;
+    left: 0;
+    background-color: #232636;
+    z-index: 10;
+    animation: show 0.1s forwards;
+    border: 1px solid #2a7161;
+
+    .menu {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      z-index: 10;
+      cursor: default;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: -6.2px;
+        left: 8px;
+        width: 10px;
+        height: 10px;
+        transform: rotate(45deg);
+        background: linear-gradient(-45deg, transparent 42%, #232636 50%);
+
+        border-left: 1.2px solid #2a7160;
+        border-top: 1.2px solid #2a7160;
+        border-radius: 1px;
+
+        z-index: 2;
+      }
+
+      .dropdownMenuItem {
+        width: 100%;
+        height: 46px;
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        background: rgba(14, 16, 25, 0.15);
+        margin-top: 2px;
+        color: #fff;
+        font-weight: 600;
+        font-size: 13px;
+        cursor: pointer;
+
+        &:hover {
+          background: rgba(14, 16, 25, 0.45);
+        }
+
+        img {
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+}
+
+.active {
+  background: rgba(14, 16, 25, 0.45) !important;
+}
+
+.menuWrapper {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  max-width: 400px;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 8;
+  cursor: default;
+}
+
+.hide {
+  animation: hide 0.1s linear;
+}
+
+@keyframes border {
+  0% {
+    border-bottom: 1px solid transparent;
+  }
+
+  100% {
+    border-bottom: 1px solid red;
+  }
+}
+
+@keyframes show {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+    transform-origin: left top;
+  }
+}
+
+@keyframes hide {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+    transform-origin: left top;
+  }
+}

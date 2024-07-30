@@ -7,13 +7,13 @@ import AdminNavigation, {
   AdminNavigationButton,
 } from "@/components/AdminNavigation/AdminNavigation";
 import useAdminStore from "../store";
-import AdminTableWheelFortune from "@/components/tables/AdminTableWheelFortune/AdminTableWheelFortune";
+import AdminTableReferrals from "@/components/tables/AdminTableReferrals/AdminTableReferrals";
 
-const WheelFortune = () => {
+const Referrals = () => {
   const adminStore = useAdminStore((state) => state);
 
   useEffect(() => {
-    adminStore.setCurrentPage("wheel-fortune");
+    adminStore.setCurrentPage("referrals");
   }, []);
 
   return (
@@ -22,15 +22,16 @@ const WheelFortune = () => {
         <div className={styles.background}></div>
         <div className={styles.main}>
           <HeaderAdmin />
-          <AdminNavigation title="Колесо фортуни">
+          <AdminNavigation title="Рефералки">
             <AdminNavigationButton src="/assets/admin/nav/search.svg" />
-            <AdminNavigationButton src="/assets/admin/nav/wallet.svg" />
+            <AdminNavigationButton src="/assets/admin/nav/plus.svg" />
+            <AdminNavigationButton src="/assets/admin/nav/file-download.svg" />
           </AdminNavigation>
-          <AdminTableWheelFortune />
+          <AdminTableReferrals />
         </div>
       </div>
     </div>
   );
 };
 
-export default WheelFortune;
+export default Referrals;

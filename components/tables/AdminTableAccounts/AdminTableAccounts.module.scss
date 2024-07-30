@@ -1,0 +1,107 @@
+.table {
+  width: 100%;
+  height: 50px;
+  color: #b0b5c6;
+  font-size: 10px;
+  background-color: rgba(37, 42, 64, 0.8);
+  padding-bottom: 35px;
+
+  .thead {
+    width: 100%;
+    height: 30px;
+    background: rgba(37, 42, 64, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 10px;
+    padding: 0 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+    margin-bottom: 0;
+
+    &:last-child th:last-child {
+      background: #000;
+    }
+  }
+
+  .tbody {
+    .tableRowItem {
+      width: 100%;
+      height: 40px;
+      background-color: rgba(52, 64, 87, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+      margin-bottom: 2px;
+      transform: scale(0.999);
+      cursor: pointer;
+      transition: 0.2s;
+
+      &:hover {
+        transform: scale(0.99);
+      }
+
+      &:nth-child(even) {
+        background-color: rgba(52, 64, 87, 0.3);
+      }
+
+      .tableRowChildLeft {
+        display: flex;
+        align-items: center;
+
+        .accountWrapper {
+          display: flex;
+          align-items: center;
+
+          .avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 32px;
+            margin-right: 5px;
+            // background-color: red;
+          }
+          .name {
+            font-weight: 600;
+            font-size: 10px;
+            color: #fff;
+          }
+
+          .email {
+            font-weight: 600;
+            font-size: 8px;
+            color: #b0b5c6;
+            margin-top: 2px;
+          }
+        }
+      }
+
+      .tableRowChildRight {
+        td {
+          display: flex;
+          align-items: center;
+
+          .money {
+            font-weight: 600;
+            font-size: 10px;
+            background: linear-gradient(180deg, #fff 0%, #a2a2a2 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 1px 1px 0 rgba(12, 13, 31, 0.36);
+          }
+        }
+      }
+    }
+  }
+}
+
+.idx {
+  width: 50px;
+  height: 100%;
+  text-align: left;
+}
+
+.textRight {
+  text-align: right;
+}
