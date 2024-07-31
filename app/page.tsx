@@ -5,6 +5,9 @@ import Header from "@/components/Header/Header";
 import RoomsView from "@/components/RoomsView/RoomsView";
 import Modal from "@/components/modal/Modal";
 import ModalsView from "@/components/ModalsView/ModalsView";
+import AdminNavigation, {
+  AdminNavigationCustomButton,
+} from "@/components/AdminNavigation/AdminNavigation";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -18,6 +21,11 @@ export default function Home() {
         <div className={styles.background}></div>
         <div className={styles.main}>
           <Header />
+          <AdminNavigation title="Колесо фортуни">
+            <AdminNavigationCustomButton src="/assets/admin/dropdown/wheel-of-fortune.svg">
+              Крутити
+            </AdminNavigationCustomButton>
+          </AdminNavigation>
           <RoomsView />
           <ModalsView />
         </div>

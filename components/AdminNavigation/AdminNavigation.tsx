@@ -15,6 +15,17 @@ const AdminNavigationButton: FC<{ src: string }> = ({ src }) => {
   );
 };
 
+const AdminNavigationCustomButton: FC<{ children: ReactNode; src: string }> = ({
+  children,
+  src,
+}) => {
+  return (
+    <div className={styles.customButton}>
+      <Image src={src} alt="image" width={15} height={15} /> {children}
+    </div>
+  );
+};
+
 const AdminNavigation: FC<AdminNavigationProps> = ({ title, children }) => {
   return (
     <div className={styles.navigation}>
@@ -26,4 +37,4 @@ const AdminNavigation: FC<AdminNavigationProps> = ({ title, children }) => {
 
 export default AdminNavigation;
 
-export { AdminNavigationButton };
+export { AdminNavigationButton, AdminNavigationCustomButton };

@@ -26,5 +26,29 @@
       background-image: url("/assets/admin/nav/border.svg");
       cursor: pointer;
     }
+
+    .customButton {
+      display: flex;
+      align-items: center;
+      margin-left: 10px;
+      border-radius: 50px;
+      border: 1px solid #3d927c;
+      padding: 5px 6px;
+      font-size: 10px;
+      transition: 0.1s;
+      color: #fff;
+      text-transform: uppercase;
+      transform: scale(0.999);
+
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(0.98);
+      }
+
+      img {
+        margin-right: 5px;
+      }
+    }
   }
 }
