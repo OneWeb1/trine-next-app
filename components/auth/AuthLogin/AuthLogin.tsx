@@ -44,7 +44,7 @@ const AuthLogin = () => {
           </GlobalGreenButton>
         </form>
 
-        <div style={{ marginTop: "120px" }}></div>
+        <div style={{ marginTop: "85px" }}></div>
 
         <div className={styles.bottomLinkWrapper}>
           <Link className={styles.link} href={"/auth/registration"}>

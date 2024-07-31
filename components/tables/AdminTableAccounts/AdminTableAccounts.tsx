@@ -71,8 +71,8 @@ const AdminTableAccounts = () => {
         <Pagination
           className="pagination-bar"
           currentPage={currentPage}
-          totalCount={305}
-          pageSize={8}
+          totalCount={5000}
+          pageSize={3}
           onPageChange={(page) => setCurrentPage(page)}
         />
       </tbody>

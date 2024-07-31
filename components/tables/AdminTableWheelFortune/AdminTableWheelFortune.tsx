@@ -11,6 +11,21 @@ type TableRowItemProps = {
   balance: string;
 };
 
+const MoneyWrapper = ({ number }: { number: number }) => {
+  return (
+    <>
+      <Image
+        style={{ marginRight: "1px" }}
+        src="/assets/home/money.svg"
+        alt="image"
+        width={10}
+        height={10}
+      />{" "}
+      <span className={styles.money}>{number}</span>
+    </>
+  );
+};
+
 const TableRowItem: FC<TableRowItemProps> = ({ id, balance }) => {
   return (
     <tr className={styles.tableRowItem}>
@@ -21,7 +36,21 @@ const TableRowItem: FC<TableRowItemProps> = ({ id, balance }) => {
       </tr>
       <tr className={styles.tableRowChildRight}>
         <td>
-          <span className={styles.money}>@bodya</span>
+          <th className={clsx(styles.item)}>
+            <MoneyWrapper number={100} />
+          </th>
+          <th style={{ maxWidth: "15px" }} className={clsx(styles.item)}>
+            2x
+          </th>
+          <th className={clsx(styles.item)}>
+            <MoneyWrapper number={800} />
+          </th>
+          <th className={clsx(styles.item)}>
+            <MoneyWrapper number={1200} />
+          </th>
+          <th className={clsx(styles.item, styles.textRight)}>
+            <MoneyWrapper number={1600} />
+          </th>
         </td>
       </tr>
     </tr>
@@ -38,11 +67,13 @@ const AdminTableWheelFortune = () => {
           <th>Ім`я</th>
         </tr>
         <tr className={styles.right}>
-          <th className={clsx(styles.bet)}>Ставка</th>
-          <th className={clsx(styles.x)}>Х</th>
-          <th className={clsx(styles.prize)}>Приз</th>
-          <th className={clsx(styles.prevBalance)}>ПБ</th>
-          <th className={clsx(styles.balance, styles.textRight)}>Баланс</th>
+          <th className={clsx(styles.item)}>Ставка</th>
+          <th style={{ maxWidth: "15px" }} className={clsx(styles.item)}>
+            Х
+          </th>
+          <th className={clsx(styles.item)}>Приз</th>
+          <th className={clsx(styles.item)}>ПБ</th>
+          <th className={clsx(styles.item, styles.textRight)}>Баланс</th>
         </tr>
       </thead>
       <tbody className={styles.tbody}>
