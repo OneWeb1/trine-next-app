@@ -37,10 +37,10 @@ const AdminTableReferrals = () => {
       <thead className={styles.thead}>
         <tr>
           <th className={styles.idx}>#</th>
-          <th>Ім'я</th>
+          <th>Ім`я</th>
         </tr>
         <tr>
-          <th className={clsx(styles.textRight)}>Зв'язок</th>
+          <th className={clsx(styles.textRight)}>Зв`язок</th>
         </tr>
       </thead>
       <tbody className={styles.tbody}>
