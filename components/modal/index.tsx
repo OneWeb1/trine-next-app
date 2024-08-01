@@ -5,6 +5,13 @@ import ModalChangeAvatar from "./ModalChangeAvatar/ModalChangeAvatar";
 import ModalChangeName from "./ModalChangeName/ModalChangeName";
 import ModalChangePassword from "./ModalChangePassword/ModalChangePassword";
 import ModalConfirm from "./ModalConfirm/ModalConfirm";
+import ModalChangeTransferManager from "./ModalChangeTransferManager/ModalChangeTransferManager";
+import ModalCreateRoom from "./ModalCreateRoom/ModalCreateRoom";
+import ModalCreateReferralLink from "./ModalCreateReferralLink/ModalCreateReferralLink";
+import ModalViewSumBalance from "./ModalViewSumBalance/ModalViewSumBalance";
+import ModalSearchAccountById from "./ModalSearchAccountById/ModalSearchAccountById";
+import ModalSearchReferralLink from "./ModalSearchReferralLink/ModalSearchReferralLink";
+import ModalAccountSetting from "./ModalAccountSetting/ModalAccountSetting";
 
 export {
   ModalBalanceReplenishment,
@@ -14,4 +21,11 @@ export {
   ModalChangeName,
   ModalChangePassword,
   ModalConfirm,
+  ModalChangeTransferManager,
+  ModalCreateRoom,
+  ModalCreateReferralLink,
+  ModalViewSumBalance,
+  ModalSearchAccountById,
+  ModalSearchReferralLink,
+  ModalAccountSetting,
 };

@@ -35,6 +35,7 @@ const DropdownHeaderMenu: FC<DropdownHeaderMenuProps> = ({ close }) => {
 
   const showModalConfirm = () => {
     closeMenu();
+    modalsStore.setConfirmText("Підтвердити вихід з облікового запису?");
     modalsStore.addOpenModal({ name: "ModalConfirm" });
   };
 

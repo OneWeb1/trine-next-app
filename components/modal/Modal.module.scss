@@ -150,11 +150,25 @@
         border: 1px;
         background: #1f1e26;
       }
+
+      .buttonsGroup {
+        display: flex;
+        align-items: center;
+        padding: 10px 17px;
+
+        button:last-child {
+          margin-left: 12px;
+        }
+      }
     }
   }
   .hide {
     animation: hide 0.2s linear;
   }
+}
+
+.resetPb {
+  padding-bottom: 0;
 }
 
 @keyframes show {

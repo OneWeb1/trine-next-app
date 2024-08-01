@@ -28,19 +28,9 @@ const DropdownHeaderAdminMenu: FC<DropdownHeaderAdminMenuProps> = ({
     }, 60);
   };
 
-  const showModalWithDrawalBalance = () => {
+  const showModalTransferManager = () => {
     closeMenu();
-    modalsStore.addOpenModal({ name: "ModalWithDrawalBalance" });
-  };
-
-  const showModalSettings = () => {
-    closeMenu();
-    modalsStore.addOpenModal({ name: "ModalSettings" });
-  };
-
-  const showModalConfirm = () => {
-    closeMenu();
-    modalsStore.addOpenModal({ name: "ModalConfirm" });
+    modalsStore.addOpenModal({ name: "ModalChangeTransferManager" });
   };
 
   return (
@@ -103,7 +93,10 @@ const DropdownHeaderAdminMenu: FC<DropdownHeaderAdminMenuProps> = ({
                 Рефералки
               </div>
             </Link>
-            <div className={styles.dropdownMenuItem}>
+            <div
+              className={styles.dropdownMenuItem}
+              onClick={showModalTransferManager}
+            >
               <Image
                 className={styles.avatar}
                 src="/assets/admin/dropdown/digital-payment.svg"

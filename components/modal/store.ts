@@ -7,6 +7,8 @@ interface IOpenModal {
 interface IModalsState {
   openModals: IOpenModal[];
   currentOpenModal: IOpenModal;
+  confirmText: string;
+  setConfirmText: (text: string) => void;
   addOpenModal: (openModal: IOpenModal) => void;
   removeOpenModal: () => void;
 }
@@ -14,6 +16,11 @@ interface IModalsState {
 const useModalsStore = create<IModalsState>((set) => ({
   openModals: [],
   currentOpenModal: {} as IOpenModal,
+  confirmText: "",
+  setConfirmText: (text: string) =>
+    set((state) => ({
+      confirmText: text,
+    })),
   addOpenModal: (openModal: IOpenModal) =>
     set((state) => ({
       openModals: [...state.openModals, openModal],

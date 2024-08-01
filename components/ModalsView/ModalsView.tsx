@@ -12,6 +12,13 @@ import {
   ModalChangeName,
   ModalChangePassword,
   ModalConfirm,
+  ModalChangeTransferManager,
+  ModalCreateRoom,
+  ModalCreateReferralLink,
+  ModalViewSumBalance,
+  ModalSearchAccountById,
+  ModalSearchReferralLink,
+  ModalAccountSetting,
 } from "./../modal";
 
 const modals: { [key: string]: FC } = {
@@ -22,6 +29,13 @@ const modals: { [key: string]: FC } = {
   ModalChangeName,
   ModalChangePassword,
   ModalConfirm,
+  ModalChangeTransferManager,
+  ModalCreateRoom,
+  ModalCreateReferralLink,
+  ModalViewSumBalance,
+  ModalSearchAccountById,
+  ModalSearchReferralLink,
+  ModalAccountSetting,
 };
 
 const ModalsView = () => {

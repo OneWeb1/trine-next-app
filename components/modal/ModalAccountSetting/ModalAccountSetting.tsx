@@ -1,13 +1,13 @@
 import React from "react";
 import Modal from "../Modal";
 
-import styles from "./ModalSettings.module.scss";
+import styles from "./ModalAccountSetting.module.scss";
 import SwitchBox from "../components/SwitchBox/SwitchBox";
 import NextBox from "../components/NextBox/NextBox";
 
 import useModalsStore from "../store";
 
-const ModalSettings = () => {
+const ModalAccountSetting = () => {
   const modalsStore = useModalsStore((state) => state);
 
   const showModalChangeAvatar = () => {
@@ -30,18 +30,15 @@ const ModalSettings = () => {
   return (
     <Modal title="Налаштування">
       <div className={styles.boxContainer}>
-        <SwitchBox option="Налаштування музики" value={true} />
-        <SwitchBox option="Налаштування звуку" value={true} />
-        <NextBox option="Змінити аватарку" onClick={showModalChangeAvatar} />
-        <NextBox option="Змінити ім'я" onClick={showModalChangeName} />
-        <NextBox option="Змінити пароль" onClick={showModalChangePassword} />
+        <NextBox option="Змінити баланс" onClick={showModalChangeAvatar} />
+        <NextBox option="Статистика" onClick={showModalChangeName} />
         <NextBox
-          option="Вийти з облікового запису"
-          onClick={showModalConfirm}
+          option="Видалити облвіковий запис"
+          onClick={showModalChangePassword}
         />
       </div>
     </Modal>
   );
 };
 
-export default ModalSettings;
+export default ModalAccountSetting;

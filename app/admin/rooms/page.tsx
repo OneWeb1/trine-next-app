@@ -6,11 +6,18 @@ import HeaderAdmin from "@/components/HeaderAdmin/HeaderAdmin";
 import AdminNavigation, {
   AdminNavigationButton,
 } from "@/components/AdminNavigation/AdminNavigation";
+import useModalsStore from "@/components/modal/store";
 import useAdminStore from "../store";
 import RoomsView from "@/components/RoomsView/RoomsView";
+import ModalsView from "@/components/ModalsView/ModalsView";
 
 const Rooms = () => {
   const adminStore = useAdminStore((state) => state);
+  const modalsStore = useModalsStore((state) => state);
+
+  const showModalCreateRoom = () => {
+    modalsStore.addOpenModal({ name: "ModalCreateRoom" });
+  };
 
   useEffect(() => {
     adminStore.setCurrentPage("rooms");
@@ -24,9 +31,13 @@ const Rooms = () => {
           <HeaderAdmin />
           <AdminNavigation title="Кімнати">
             <AdminNavigationButton src="/assets/admin/nav/search.svg" />
-            <AdminNavigationButton src="/assets/admin/nav/plus.svg" />
+            <AdminNavigationButton
+              src="/assets/admin/nav/plus.svg"
+              onClick={showModalCreateRoom}
+            />
           </AdminNavigation>
           <RoomsView />
+          <ModalsView />
         </div>
       </div>
     </div>

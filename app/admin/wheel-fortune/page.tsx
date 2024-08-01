@@ -8,6 +8,7 @@ import AdminNavigation, {
 } from "@/components/AdminNavigation/AdminNavigation";
 import useAdminStore from "../store";
 import AdminTableWheelFortune from "@/components/tables/AdminTableWheelFortune/AdminTableWheelFortune";
+import ModalsView from "@/components/ModalsView/ModalsView";
 
 const WheelFortune = () => {
   const adminStore = useAdminStore((state) => state);
@@ -27,6 +28,7 @@ const WheelFortune = () => {
             <AdminNavigationButton src="/assets/admin/nav/wallet.svg" />
           </AdminNavigation>
           <AdminTableWheelFortune />
+          <ModalsView />
         </div>
       </div>
     </div>

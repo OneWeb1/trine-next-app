@@ -54,7 +54,7 @@ const AdminTableReferrals = () => {
         <Pagination
           className="pagination-bar"
           currentPage={currentPage}
-          totalCount={305}
+          totalCount={5}
           pageSize={8}
           onPageChange={(page) => setCurrentPage(page)}
         />

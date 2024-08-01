@@ -1,28 +1,28 @@
 "use client";
 
 import React, { useState } from "react";
+import styles from "./ModalChangeTransferManager.module.scss";
 import Modal from "../Modal";
-import styles from "./ModalChangeName.module.scss";
 import MainInput from "@/components/ui/inputs/MainInput/MainInput";
 
-const ModalChangeName = () => {
-  const [username, setUsername] = useState<string>("");
+const ModalChangeTransferManager = () => {
+  const [link, setLink] = useState<string>("");
 
   return (
     <Modal
-      title="Змінити ім'я"
+      title="Перекази"
       isButtonsGroup={true}
       buttonValues={["Зберегти", "Відмінити"]}
     >
       <div className={styles.boxContainer}>
         <MainInput
-          placeholder="Змінити ім`я"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Посилання на менеджера"
+          value={link}
+          onChange={(e) => setLink(e.target.value)}
         />
       </div>
     </Modal>
   );
 };
 
-export default ModalChangeName;
+export default ModalChangeTransferManager;

@@ -6,14 +6,26 @@ import clsx from "clsx";
 import Image from "next/image";
 import Pagination from "../../Pagination/Pagination";
 
+import useModalsStore from "@/components/modal/store";
+
+type AdminTableAccountsProps = {
+  onClick?: () => void;
+};
+
 type TableRowItemProps = {
   id: number;
   balance: string;
 };
 
 const TableRowItem: FC<TableRowItemProps> = ({ id, balance }) => {
+  const modalsStore = useModalsStore();
+
+  const showModalAccountSetting = () => {
+    modalsStore.addOpenModal({ name: "ModalAccountSetting" });
+  };
+
   return (
-    <tr className={styles.tableRowItem}>
+    <tr className={styles.tableRowItem} onClick={showModalAccountSetting}>
       <tr className={styles.tableRowChildLeft}>
         <td className={styles.idx}>{id}</td>
         <td className={styles.accountWrapper}>
@@ -46,7 +58,7 @@ const TableRowItem: FC<TableRowItemProps> = ({ id, balance }) => {
   );
 };
 
-const AdminTableAccounts = () => {
+const AdminTableAccounts: FC<AdminTableAccountsProps> = ({ onClick }) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   return (

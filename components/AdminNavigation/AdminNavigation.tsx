@@ -7,9 +7,12 @@ type AdminNavigationProps = {
   children: ReactNode;
 };
 
-const AdminNavigationButton: FC<{ src: string }> = ({ src }) => {
+const AdminNavigationButton: FC<{ src: string; onClick?: () => void }> = ({
+  src,
+  onClick,
+}) => {
   return (
-    <div className={styles.button}>
+    <div className={styles.button} onClick={onClick}>
       <Image src={src} alt="image" width={15} height={15} />
     </div>
   );

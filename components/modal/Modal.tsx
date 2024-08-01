@@ -5,13 +5,23 @@ import styles from "./Modal.module.scss";
 import Image from "next/image";
 
 import useModalsStore from "./store";
+import GlobalGreenButton from "../ui/buttons/GlobalGreenButton";
 
 type ModalProps = {
   children: ReactNode;
   title?: string;
+  isButtonsGroup?: boolean;
+  buttonValues?: string[];
+  handlers?: (() => void)[];
 };
 
-const Modal: FC<ModalProps> = ({ children, title }) => {
+const Modal: FC<ModalProps> = ({
+  children,
+  title,
+  isButtonsGroup,
+  buttonValues,
+  handlers,
+}) => {
   const modalsStore = useModalsStore((state) => state);
   const [isClosed, setIsClosed] = useState<boolean>(false);
 
@@ -47,8 +57,34 @@ const Modal: FC<ModalProps> = ({ children, title }) => {
             </div>
           </div>
         </div>
-        <div className={styles.main}>
+        <div
+          style={{ paddingBottom: isButtonsGroup ? "0px" : "25px" }}
+          className={styles.main}
+        >
           <div className={styles.boxWrapper}>{children}</div>
+          {isButtonsGroup && (
+            <div className={styles.buttonsGroup}>
+              <GlobalGreenButton
+                style={{ fontSize: "18px" }}
+                width="169px"
+                height="46px"
+              >
+                {buttonValues && buttonValues[0]}
+              </GlobalGreenButton>
+              <GlobalGreenButton
+                style={{ fontSize: "18px" }}
+                width="169px"
+                height="46px"
+                onClick={
+                  !handlers || (handlers && !handlers[1])
+                    ? () => close()
+                    : () => {}
+                }
+              >
+                {buttonValues && buttonValues[1]}
+              </GlobalGreenButton>
+            </div>
+          )}
         </div>
       </div>
     </div>
