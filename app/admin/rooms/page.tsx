@@ -19,6 +19,10 @@ const Rooms = () => {
     modalsStore.addOpenModal({ name: "ModalCreateRoom" });
   };
 
+  const showModalRoomSetting = () => {
+    modalsStore.addOpenModal({ name: "ModalRoomSetting" });
+  };
+
   useEffect(() => {
     adminStore.setCurrentPage("rooms");
   }, []);
@@ -36,7 +40,7 @@ const Rooms = () => {
               onClick={showModalCreateRoom}
             />
           </AdminNavigation>
-          <RoomsView />
+          <RoomsView roomClick={showModalRoomSetting} />
           <ModalsView />
         </div>
       </div>

@@ -1,8 +1,12 @@
-import React from "react";
+import React, { FC } from "react";
 import styles from "./RoomsView.module.scss";
 import Image from "next/image";
 
-const RoomsView = () => {
+type RoomsViewProps = {
+  roomClick?: () => void;
+};
+
+const RoomsView: FC<RoomsViewProps> = ({ roomClick }) => {
   const ns = [
     "Green",
     "Green",
@@ -14,6 +18,7 @@ const RoomsView = () => {
     "Violet",
     "Violet",
   ];
+  console.log({ roomClick });
 
   return (
     <div className={styles.roomsView}>
@@ -21,7 +26,10 @@ const RoomsView = () => {
       <div className={styles.rooms}>
         {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
           <>
-            <div className={styles.room}>
+            <div
+              className={styles.room}
+              onClick={roomClick ? roomClick : () => {}}
+            >
               <Image
                 src="/assets/rooms/image.svg"
                 alt="image"

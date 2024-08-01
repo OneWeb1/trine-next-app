@@ -12,6 +12,9 @@ import ModalViewSumBalance from "./ModalViewSumBalance/ModalViewSumBalance";
 import ModalSearchAccountById from "./ModalSearchAccountById/ModalSearchAccountById";
 import ModalSearchReferralLink from "./ModalSearchReferralLink/ModalSearchReferralLink";
 import ModalAccountSetting from "./ModalAccountSetting/ModalAccountSetting";
+import ModalSearchFortuneHistoryById from "./ModalSearchFortuneHistoryById/ModalSearchFortuneHistoryById";
+import ModalViewFortuneStatsBalance from "./ModalViewFortuneStatsBalance/ModalViewFortuneStatsBalance";
+import ModalRoomSetting from "./ModalRoomSetting/ModalRoomSetting";
 
 export {
   ModalBalanceReplenishment,
@@ -28,4 +31,7 @@ export {
   ModalSearchAccountById,
   ModalSearchReferralLink,
   ModalAccountSetting,
+  ModalSearchFortuneHistoryById,
+  ModalViewFortuneStatsBalance,
+  ModalRoomSetting,
 };

@@ -19,6 +19,9 @@ import {
   ModalSearchAccountById,
   ModalSearchReferralLink,
   ModalAccountSetting,
+  ModalSearchFortuneHistoryById,
+  ModalViewFortuneStatsBalance,
+  ModalRoomSetting,
 } from "./../modal";
 
 const modals: { [key: string]: FC } = {
@@ -36,6 +39,9 @@ const modals: { [key: string]: FC } = {
   ModalSearchAccountById,
   ModalSearchReferralLink,
   ModalAccountSetting,
+  ModalSearchFortuneHistoryById,
+  ModalViewFortuneStatsBalance,
+  ModalRoomSetting,
 };
 
 const ModalsView = () => {
