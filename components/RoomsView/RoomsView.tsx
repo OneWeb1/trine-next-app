@@ -1,3 +1,5 @@
+"use client"
+
 import React, { FC } from "react";
 import styles from "./RoomsView.module.scss";
 import Image from "next/image";
