@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 "use client";
-=======
-"use client"
->>>>>>> b3e44987708fe138c1f3288f5335a3f012837369
 
 import React, { FC } from "react";
 import styles from "./RoomsView.module.scss";
