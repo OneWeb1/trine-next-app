@@ -6,14 +6,22 @@ import clsx from "clsx";
 import Image from "next/image";
 import Pagination from "../../Pagination/Pagination";
 
+import useModalsStore from "@/components/modal/store";
+
 type TableRowItemProps = {
   id: number;
   balance: string;
 };
 
 const TableRowItem: FC<TableRowItemProps> = ({ id, balance }) => {
+  const modalsStore = useModalsStore((state) => state);
+
+  const showModalReferallSetting = () => {
+    modalsStore.addOpenModal({ name: "ModalReferralSetting" });
+  };
+
   return (
-    <tr className={styles.tableRowItem}>
+    <tr className={styles.tableRowItem} onClick={showModalReferallSetting}>
       <tr className={styles.tableRowChildLeft}>
         <td className={styles.idx}>{id}</td>
         <td className={styles.accountWrapper}>
@@ -54,7 +62,7 @@ const AdminTableReferrals = () => {
         <Pagination
           className="pagination-bar"
           currentPage={currentPage}
-          totalCount={5}
+          totalCount={50}
           pageSize={8}
           onPageChange={(page) => setCurrentPage(page)}
         />

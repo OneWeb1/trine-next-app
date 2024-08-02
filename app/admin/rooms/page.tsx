@@ -19,6 +19,10 @@ const Rooms = () => {
     modalsStore.addOpenModal({ name: "ModalCreateRoom" });
   };
 
+  const showModalRoomStats = () => {
+    modalsStore.addOpenModal({ name: "ModalRoomStats" });
+  };
+
   const showModalRoomSetting = () => {
     modalsStore.addOpenModal({ name: "ModalRoomSetting" });
   };
@@ -34,7 +38,10 @@ const Rooms = () => {
         <div className={styles.main}>
           <HeaderAdmin />
           <AdminNavigation title="Кімнати">
-            <AdminNavigationButton src="/assets/admin/nav/search.svg" />
+            <AdminNavigationButton
+              src="/assets/admin/nav/stats.svg"
+              onClick={showModalRoomStats}
+            />
             <AdminNavigationButton
               src="/assets/admin/nav/plus.svg"
               onClick={showModalCreateRoom}

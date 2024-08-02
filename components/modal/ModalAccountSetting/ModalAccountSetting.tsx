@@ -10,32 +10,28 @@ import useModalsStore from "../store";
 const ModalAccountSetting = () => {
   const modalsStore = useModalsStore((state) => state);
 
-  const showModalChangeAvatar = () => {
-    modalsStore.addOpenModal({ name: "ModalChangeAvatar" });
+  const showModalAccountChangeBalance = () => {
+    modalsStore.addOpenModal({ name: "ModalAccountChangeBalance" });
   };
 
-  const showModalChangeName = () => {
-    modalsStore.addOpenModal({ name: "ModalChangeName" });
-  };
-
-  const showModalChangePassword = () => {
-    modalsStore.addOpenModal({ name: "ModalChangePassword" });
+  const showModalAccountStats = () => {
+    modalsStore.addOpenModal({ name: "ModalViewAccountStats" });
   };
 
   const showModalConfirm = () => {
-    modalsStore.setConfirmText("Підтвердити вихід з облікового запису?");
+    modalsStore.setConfirmText("Підтвердити видалення облікового запису?");
     modalsStore.addOpenModal({ name: "ModalConfirm" });
   };
 
   return (
-    <Modal title="Налаштування">
+    <Modal title="Меню">
       <div className={styles.boxContainer}>
-        <NextBox option="Змінити баланс" onClick={showModalChangeAvatar} />
-        <NextBox option="Статистика" onClick={showModalChangeName} />
         <NextBox
-          option="Видалити облвіковий запис"
-          onClick={showModalChangePassword}
+          option="Змінити баланс"
+          onClick={showModalAccountChangeBalance}
         />
+        <NextBox option="Статистика" onClick={showModalAccountStats} />
+        <NextBox option="Видалити обліковий запис" onClick={showModalConfirm} />
       </div>
     </Modal>
   );

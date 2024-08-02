@@ -1,3 +1,5 @@
+"use client";
+
 import React, { FC } from "react";
 import styles from "./RoomsView.module.scss";
 import Image from "next/image";
@@ -18,7 +20,6 @@ const RoomsView: FC<RoomsViewProps> = ({ roomClick }) => {
     "Violet",
     "Violet",
   ];
-  console.log({ roomClick });
 
   return (
     <div className={styles.roomsView}>

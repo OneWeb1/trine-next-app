@@ -10,28 +10,20 @@ import useModalsStore from "../store";
 const ModalRoomSetting = () => {
   const modalsStore = useModalsStore((state) => state);
 
-  const showModalChangeAvatar = () => {
-    modalsStore.addOpenModal({ name: "ModalChangeAvatar" });
-  };
-
-  const showModalChangeName = () => {
-    modalsStore.addOpenModal({ name: "ModalChangeName" });
-  };
-
-  const showModalChangePassword = () => {
-    modalsStore.addOpenModal({ name: "ModalChangePassword" });
+  const showModalViewRoomStats = () => {
+    modalsStore.addOpenModal({ name: "ModalViewRoomStats" });
   };
 
   const showModalConfirm = () => {
-    modalsStore.setConfirmText("Підтвердити вихід з облікового запису?");
+    modalsStore.setConfirmText("Підтвердити видалення кімнати?");
     modalsStore.addOpenModal({ name: "ModalConfirm" });
   };
 
   return (
-    <Modal title="Налаштування">
+    <Modal title="Меню">
       <div className={styles.boxContainer}>
-        <NextBox option="Статистика" onClick={showModalChangeName} />
-        <NextBox option="Видалити кімнату" onClick={showModalChangePassword} />
+        <NextBox option="Статистика" onClick={showModalViewRoomStats} />
+        <NextBox option="Видалити кімнату" onClick={showModalConfirm} />
       </div>
     </Modal>
   );

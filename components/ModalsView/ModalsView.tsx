@@ -15,13 +15,18 @@ import {
   ModalChangeTransferManager,
   ModalCreateRoom,
   ModalCreateReferralLink,
-  ModalViewSumBalance,
+  ModalAccountsBalance,
   ModalSearchAccountById,
   ModalSearchReferralLink,
   ModalAccountSetting,
   ModalSearchFortuneHistoryById,
   ModalViewFortuneStatsBalance,
   ModalRoomSetting,
+  ModalRoomStats,
+  ModalViewAccountStats,
+  ModalAccountChangeBalance,
+  ModalViewRoomStats,
+  ModalReferralSetting,
 } from "./../modal";
 
 const modals: { [key: string]: FC } = {
@@ -35,13 +40,18 @@ const modals: { [key: string]: FC } = {
   ModalChangeTransferManager,
   ModalCreateRoom,
   ModalCreateReferralLink,
-  ModalViewSumBalance,
+  ModalAccountsBalance,
   ModalSearchAccountById,
   ModalSearchReferralLink,
   ModalAccountSetting,
   ModalSearchFortuneHistoryById,
   ModalViewFortuneStatsBalance,
   ModalRoomSetting,
+  ModalRoomStats,
+  ModalViewAccountStats,
+  ModalAccountChangeBalance,
+  ModalViewRoomStats,
+  ModalReferralSetting,
 };
 
 const ModalsView = () => {

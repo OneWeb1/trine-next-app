@@ -18,7 +18,7 @@ const Accounts = () => {
   const modalsStore = useModalsStore((state) => state);
 
   const showModalViewBalance = () => {
-    modalsStore.addOpenModal({ name: "ModalViewSumBalance" });
+    modalsStore.addOpenModal({ name: "ModalAccountsBalance" });
   };
 
   const showModalSearchAccountById = () => {
