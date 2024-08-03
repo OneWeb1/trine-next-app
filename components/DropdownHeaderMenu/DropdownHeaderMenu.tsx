@@ -1,11 +1,13 @@
 "use client";
 
 import React, { FC, useState } from "react";
-import Image from "next/image";
+
 import styles from "./DropdownHeaderMenu.module.scss";
 
 import useModalsStore from "../modal/store";
+import useAuthStore from "../auth/store";
 import Link from "next/link";
+import CustomImage from "../ui/images/CustomImage/CustomImage";
 
 type DropdownHeaderMenuProps = {
   close: () => void;
@@ -13,6 +15,7 @@ type DropdownHeaderMenuProps = {
 
 const DropdownHeaderMenu: FC<DropdownHeaderMenuProps> = ({ close }) => {
   const modalsStore = useModalsStore((state) => state);
+  const authStore = useAuthStore((state) => state);
   const [isClose, setIsClose] = useState<boolean>(false);
 
   const closeMenu = () => {
@@ -33,9 +36,15 @@ const DropdownHeaderMenu: FC<DropdownHeaderMenuProps> = ({ close }) => {
     modalsStore.addOpenModal({ name: "ModalSettings" });
   };
 
+  const logout = () => {
+    authStore.logout();
+    window.location.href = "/auth/login";
+  };
+
   const showModalConfirm = () => {
     closeMenu();
     modalsStore.setConfirmText("Підтвердити вихід з облікового запису?");
+    modalsStore.setConfirmHandlers([logout]);
     modalsStore.addOpenModal({ name: "ModalConfirm" });
   };
 
@@ -48,7 +57,7 @@ const DropdownHeaderMenu: FC<DropdownHeaderMenuProps> = ({ close }) => {
           <div className={styles.menu}>
             <div className={styles.dropdownMenuProfile}>
               <div className={styles.wrapper}>
-                <Image
+                <CustomImage
                   className={styles.avatar}
                   src="/assets/home/avatar.svg"
                   alt="avatar"
@@ -63,7 +72,7 @@ const DropdownHeaderMenu: FC<DropdownHeaderMenuProps> = ({ close }) => {
             </div>
             <Link href="/admin/accounts">
               <div className={styles.dropdownMenuItem}>
-                <Image
+                <CustomImage
                   className={styles.avatar}
                   src="/assets/home/admin.svg"
                   alt="admin"
@@ -78,7 +87,7 @@ const DropdownHeaderMenu: FC<DropdownHeaderMenuProps> = ({ close }) => {
               className={styles.dropdownMenuItem}
               onClick={showModalWithDrawalBalance}
             >
-              <Image
+              <CustomImage
                 className={styles.avatar}
                 src="/assets/home/payment.svg"
                 alt="payment"
@@ -91,7 +100,7 @@ const DropdownHeaderMenu: FC<DropdownHeaderMenuProps> = ({ close }) => {
               className={styles.dropdownMenuItem}
               onClick={showModalSettings}
             >
-              <Image
+              <CustomImage
                 className={styles.avatar}
                 src="/assets/home/settings.svg"
                 alt="settings"
@@ -101,7 +110,7 @@ const DropdownHeaderMenu: FC<DropdownHeaderMenuProps> = ({ close }) => {
               Налаштування
             </div>
             <div className={styles.dropdownMenuItem} onClick={showModalConfirm}>
-              <Image
+              <CustomImage
                 className={styles.avatar}
                 src="/assets/home/out.svg"
                 alt="out"

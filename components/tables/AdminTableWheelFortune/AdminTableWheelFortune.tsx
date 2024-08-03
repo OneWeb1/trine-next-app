@@ -3,8 +3,9 @@
 import React, { FC, useState } from "react";
 import styles from "./AdminTableWheelFortune.module.scss";
 import clsx from "clsx";
-import Image from "next/image";
+
 import Pagination from "../../Pagination/Pagination";
+import CustomImage from "@/components/ui/images/CustomImage/CustomImage";
 
 type TableRowItemProps = {
   id: number;
@@ -14,7 +15,7 @@ type TableRowItemProps = {
 const MoneyWrapper = ({ number }: { number: number }) => {
   return (
     <>
-      <Image
+      <CustomImage
         style={{ marginRight: "1px" }}
         src="/assets/home/money.svg"
         alt="image"

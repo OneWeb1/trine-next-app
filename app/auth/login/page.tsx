@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import React from "react";
 import styles from "./page.module.scss";
 import AuthLogin from "@/components/auth/AuthLogin/AuthLogin";
+import AuthentificatedRoute from "@/hoc/withAuthentificated";
 
 export const metadata: Metadata = {
   title: "Auth | Login",
@@ -10,11 +11,13 @@ export const metadata: Metadata = {
 
 const Login = () => {
   return (
-    <div className={styles.login}>
-      <div className={styles.screen}>
-        <AuthLogin />
+    <AuthentificatedRoute>
+      <div className={styles.login}>
+        <div className={styles.screen}>
+          <AuthLogin />
+        </div>
       </div>
-    </div>
+    </AuthentificatedRoute>
   );
 };
 

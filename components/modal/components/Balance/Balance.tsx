@@ -1,4 +1,4 @@
-import Image from "next/image";
+import CustomImage from "@/components/ui/images/CustomImage/CustomImage";
 import React, { FC } from "react";
 
 type BalanceProps = {
@@ -8,7 +8,7 @@ type BalanceProps = {
 const Balance: FC<BalanceProps> = ({ value }) => {
   return (
     <>
-      <Image
+      <CustomImage
         style={{ marginRight: "3px" }}
         src="/assets/home/money.svg"
         width={12}

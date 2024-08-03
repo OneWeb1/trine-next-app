@@ -1,16 +1,25 @@
 "use client";
 
-import React, { ForwardedRef, MouseEvent, RefObject, useState } from "react";
+import React, {
+  ForwardedRef,
+  MouseEvent,
+  RefObject,
+  useEffect,
+  useState,
+} from "react";
 import styles from "./Header.module.scss";
-import Image from "next/image";
+import useUserStore from "@/app/store/userStore";
+
 import DropdownHeaderMenu from "../DropdownHeaderMenu/DropdownHeaderMenu";
 
 import useModalsStore from "../modal/store";
+import CustomImage from "../ui/images/CustomImage/CustomImage";
 
 const Header = () => {
-  const [isOpenDropdownMenu, setIsOpenDropdownMenu] = useState<boolean>(false);
-
   const modalsStore = useModalsStore((state) => state);
+  const userStore = useUserStore((state) => state);
+
+  const [isOpenDropdownMenu, setIsOpenDropdownMenu] = useState<boolean>(false);
 
   const openModalBalanceReplenishment = () => {
     modalsStore.addOpenModal({
@@ -18,10 +27,14 @@ const Header = () => {
     });
   };
 
+  useEffect(() => {
+    userStore.getUser();
+  }, []);
+
   return (
     <header className={styles.header}>
       <div className={styles.leftWrapper}>
-        <Image
+        <CustomImage
           src={"/assets/home/logo.svg"}
           alt="logo"
           width={100}
@@ -30,7 +43,7 @@ const Header = () => {
       </div>
       <div className={styles.rightWrapper}>
         <div className={styles.moneyWrapper}>
-          <Image
+          <CustomImage
             src="/assets/home/money.svg"
             alt="money"
             width={20}
@@ -41,7 +54,7 @@ const Header = () => {
             className={styles.buttonAdd}
             onClick={openModalBalanceReplenishment}
           >
-            <Image
+            <CustomImage
               src="/assets/home/plus.svg"
               alt="plus"
               width={16}
@@ -53,14 +66,14 @@ const Header = () => {
           className={styles.dropdown}
           onClick={() => !isOpenDropdownMenu && setIsOpenDropdownMenu(true)}
         >
-          <Image
+          <CustomImage
             className={styles.avatar}
             src="/assets/home/avatar.svg"
             alt="avatar"
             width={22}
             height={22}
           />
-          <Image
+          <CustomImage
             className={`${styles.arrow} ${
               isOpenDropdownMenu ? styles.rotateStart : styles.rotateEnd
             }`}

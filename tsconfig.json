@@ -17,10 +17,19 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
+      "@/hoc/*": ["hoc/*"],
+      "@/components/*": ["components/*"],
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "components/modal/ModalWithDrawalBalance"
+  ],
   "exclude": ["node_modules"]
 }

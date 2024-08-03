@@ -5,13 +5,13 @@
 </g>
 <defs>
 <filter id="filter0_d_65_2169" x="0.692639" y="0.78833" width="17.187" height="16.8315" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feFlood flood-opacity="0" result="BackgroundCustomImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="1.09594"/>
 <feGaussianBlur stdDeviation="0.547968"/>
 <feComposite in2="hardAlpha" operator="out"/>
 <feColorMatrix type="matrix" values="0 0 0 0 0.0509804 0 0 0 0 0.129412 0 0 0 0 0.133333 0 0 0 1 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_65_2169"/>
+<feBlend mode="normal" in2="BackgroundCustomImageFix" result="effect1_dropShadow_65_2169"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_65_2169" result="shape"/>
 </filter>
 <linearGradient id="paint0_linear_65_2169" x1="1.58447" y1="15.4278" x2="21.1681" y2="15.4278" gradientUnits="userSpaceOnUse">

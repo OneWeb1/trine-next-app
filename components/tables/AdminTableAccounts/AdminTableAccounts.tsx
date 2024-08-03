@@ -1,12 +1,11 @@
-"use client";
-
 import React, { FC, useState } from "react";
 import styles from "./AdminTableAccounts.module.scss";
 import clsx from "clsx";
-import Image from "next/image";
+
 import Pagination from "../../Pagination/Pagination";
 
 import useModalsStore from "@/components/modal/store";
+import CustomImage from "@/components/ui/images/CustomImage/CustomImage";
 
 type AdminTableAccountsProps = {
   onClick?: () => void;
@@ -29,7 +28,7 @@ const TableRowItem: FC<TableRowItemProps> = ({ id, balance }) => {
       <tr className={styles.tableRowChildLeft}>
         <td className={styles.idx}>{id}</td>
         <td className={styles.accountWrapper}>
-          <Image
+          <CustomImage
             className={styles.avatar}
             src="/assets/home/avatar.svg"
             alt="avatar"
@@ -44,7 +43,7 @@ const TableRowItem: FC<TableRowItemProps> = ({ id, balance }) => {
       </tr>
       <tr className={styles.tableRowChildRight}>
         <td>
-          <Image
+          <CustomImage
             style={{ marginRight: "3px" }}
             src="/assets/home/money.svg"
             alt="image"

@@ -1,6 +1,5 @@
 import React, { FC, ReactNode } from "react";
 import styles from "./BeetwenBox.module.scss";
-import Image from "next/image";
 
 type BeetwenBoxProps = {
   option: string;

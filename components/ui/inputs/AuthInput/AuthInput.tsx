@@ -2,7 +2,7 @@
 
 import React, { ChangeEvent, FC, useState } from "react";
 import styles from "./AuthInput.module.scss";
-import Image from "next/image";
+import CustomImage from "../../images/CustomImage/CustomImage";
 
 type AuthInputProps = {
   type: string;
@@ -45,7 +45,12 @@ const AuthInput: FC<AuthInputProps> = ({
           className={styles.eye}
           onClick={() => setIsShowPassword(!isShowPassword)}
         >
-          <Image src="/assets/auth/eye.svg" alt="eye" width={19} height={16} />
+          <CustomImage
+            src="/assets/auth/eye.svg"
+            alt="eye"
+            width={19}
+            height={16}
+          />
         </div>
       )}
     </div>

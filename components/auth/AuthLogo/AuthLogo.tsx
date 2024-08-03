@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./AuthLogo.module.scss";
-import Image from "next/image";
+import CustomImage from "@/components/ui/images/CustomImage/CustomImage";
 
 const AuthLogo = () => {
   return (
     <div className={styles.authLogo}>
-      <Image
+      <CustomImage
         src="/assets/auth/auth-logo.svg"
         alt="auth-logo"
         width={104}

@@ -2,7 +2,7 @@ import React from "react";
 import classnames from "classnames";
 import { usePagination, DOTS } from "./../../hooks/usePagination";
 import "./Pagination.scss";
-import Image from "next/image";
+import CustomImage from "../ui/images/CustomImage/CustomImage";
 
 type PaginationProps = {
   onPageChange: (pageNumber: number) => void;
@@ -55,7 +55,7 @@ const Pagination = (props: PaginationProps) => {
         })}
         onClick={onPrevious}
       >
-        <Image
+        <CustomImage
           style={{ marginLeft: "3px" }}
           src="/assets/home/arrow-left.svg"
           alt="image"
@@ -91,7 +91,7 @@ const Pagination = (props: PaginationProps) => {
         })}
         onClick={onNext}
       >
-        <Image
+        <CustomImage
           style={{ marginLeft: "-3px" }}
           src="/assets/home/arrow-right.svg"
           alt="image"

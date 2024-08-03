@@ -5,7 +5,7 @@ import styles from "./ModalAccountsBalance.module.scss";
 
 import useModalsStore from "../store";
 import BeetwenBox from "../components/BeetwenBox/BeetwenBox";
-import Image from "next/image";
+
 import Balance from "../components/Balance/Balance";
 
 const ModalRoomStats = () => {

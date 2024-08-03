@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import React, { ChangeEvent } from "react";
 import styles from "./page.module.scss";
 import AuthRegistration from "@/components/auth/AuthRegistration/AuthRegistration";
+import AuthentificatedRoute from "@/hoc/withAuthentificated";
 
 export const metadata: Metadata = {
   title: "Auth | Registration",
@@ -10,11 +11,13 @@ export const metadata: Metadata = {
 
 const Registration = () => {
   return (
-    <div className={styles.registration}>
-      <div className={styles.screen}>
-        <AuthRegistration />
+    <AuthentificatedRoute>
+      <div className={styles.registration}>
+        <div className={styles.screen}>
+          <AuthRegistration />
+        </div>
       </div>
-    </div>
+    </AuthentificatedRoute>
   );
 };
 

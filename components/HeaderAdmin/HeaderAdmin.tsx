@@ -2,11 +2,12 @@
 
 import React, { ForwardedRef, MouseEvent, RefObject, useState } from "react";
 import styles from "./HeaderAdmin.module.scss";
-import Image from "next/image";
+
 import DropdownHeaderMenu from "../DropdownHeaderMenu/DropdownHeaderMenu";
 
 import useModalsStore from "../modal/store";
 import DropdownHeaderAdminMenu from "../DropdownHeaderAdminMenu/DropdownHeaderAdminMenu";
+import CustomImage from "../ui/images/CustomImage/CustomImage";
 
 const HeaderAdmin = () => {
   const [isOpenDropdownMenu, setIsOpenDropdownMenu] = useState<boolean>(false);
@@ -25,7 +26,7 @@ const HeaderAdmin = () => {
         className={styles.burger}
         onClick={() => !isOpenDropdownMenu && setIsOpenDropdownMenu(true)}
       >
-        <Image
+        <CustomImage
           src={"/assets/admin/burger.svg"}
           alt="logo"
           width={16}
@@ -37,7 +38,7 @@ const HeaderAdmin = () => {
       </div>
       <div className={styles.pageName}>Адмін панель</div>
       <div className={styles.logo}>
-        <Image
+        <CustomImage
           src={"/assets/admin/logo.svg"}
           alt="logo"
           width={24}

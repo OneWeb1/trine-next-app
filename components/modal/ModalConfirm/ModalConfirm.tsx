@@ -5,13 +5,14 @@ import Modal from "../Modal";
 import useModalsStore from "../store";
 
 const ModalConfirm = () => {
-  const { confirmText } = useModalsStore((state) => state);
+  const { confirmText, confirmHandlers } = useModalsStore((state) => state);
 
   return (
     <Modal
       title="Підтвердження дії"
       isButtonsGroup={true}
       buttonValues={["Підтвердити", "Відмінити"]}
+      handlers={confirmHandlers}
     >
       <div className={styles.boxContainer}>
         <div className={styles.text}>{confirmText}</div>

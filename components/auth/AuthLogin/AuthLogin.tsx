@@ -1,21 +1,42 @@
 "use client";
 
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import styles from "./AuthLogin.module.scss";
+
 import AuthLogo from "../AuthLogo/AuthLogo";
 import AuthInput from "../../ui/inputs/AuthInput/AuthInput";
 import GlobalGreenButton from "../../ui/buttons/GlobalGreenButton";
 import Link from "next/link";
+import AuthService from "@/services/AuthService";
+import useAuthStore from "../store";
 
 const AuthLogin = () => {
+  const authStore = useAuthStore();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
+  const login = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("email", email);
+    formData.append("password", password);
+    try {
+      const response = await AuthService.login(formData);
+      if (response.statusText === "OK") {
+        const { access_token, prolong_token } = response.data;
+        authStore.login(access_token, prolong_token);
+        window.location.href = "/";
+      }
+    } catch (e) {
+    } finally {
+    }
+  };
 
   return (
     <div className={styles.login}>
       <div className={styles.screen}>
         <AuthLogo />
-        <form>
+        <form onSubmit={login}>
           <AuthInput
             type="email"
             value={email}

@@ -7,7 +7,7 @@ import styles from "./ModalAccountChangeBalance.module.scss";
 
 import useModalsStore from "../store";
 import BeetwenBox from "../components/BeetwenBox/BeetwenBox";
-import Image from "next/image";
+
 import Balance from "../components/Balance/Balance";
 import MainInput from "@/components/ui/inputs/MainInput/MainInput";
 

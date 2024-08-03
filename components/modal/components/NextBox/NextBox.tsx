@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import styles from "./NextBox.module.scss";
-import Image from "next/image";
+import CustomImage from "@/components/ui/images/CustomImage/CustomImage";
 
 type NextBoxProps = {
   option: string;
@@ -11,7 +11,7 @@ const NextBox: FC<NextBoxProps> = ({ option, onClick }) => {
   return (
     <div className={styles.nextBox} onClick={onClick}>
       <div className={styles.option}>{option}</div>
-      <Image
+      <CustomImage
         src="/assets/modal/arrowNext.svg"
         alt="next"
         width={26}

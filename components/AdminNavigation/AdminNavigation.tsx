@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from "react";
 import styles from "./AdminNavigation.module.scss";
-import Image from "next/image";
+import CustomImage from "../ui/images/CustomImage/CustomImage";
 
 type AdminNavigationProps = {
   title: string;
@@ -13,7 +13,7 @@ const AdminNavigationButton: FC<{ src: string; onClick?: () => void }> = ({
 }) => {
   return (
     <div className={styles.button} onClick={onClick}>
-      <Image src={src} alt="image" width={15} height={15} />
+      <CustomImage src={src} alt="image" width={15} height={15} />
     </div>
   );
 };
@@ -24,7 +24,7 @@ const AdminNavigationCustomButton: FC<{ children: ReactNode; src: string }> = ({
 }) => {
   return (
     <div className={styles.customButton}>
-      <Image src={src} alt="image" width={15} height={15} /> {children}
+      <CustomImage src={src} alt="image" width={15} height={15} /> {children}
     </div>
   );
 };

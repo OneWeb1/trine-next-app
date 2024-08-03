@@ -2,10 +2,10 @@
 
 import React, { Children, FC, ReactNode, useState } from "react";
 import styles from "./Modal.module.scss";
-import Image from "next/image";
 
 import useModalsStore from "./store";
 import GlobalGreenButton from "../ui/buttons/GlobalGreenButton";
+import CustomImage from "../ui/images/CustomImage/CustomImage";
 
 type ModalProps = {
   children: ReactNode;
@@ -41,14 +41,14 @@ const Modal: FC<ModalProps> = ({
           <div className={styles.topLine}></div>
           <div className={styles.title}>{title}</div>
           <div className={styles.btnClose} onClick={close}>
-            <Image
+            <CustomImage
               src="/assets/modal/btnCloseBox.svg"
               alt="box"
               width={32}
               height={32}
             />
             <div className={styles.icon}>
-              <Image
+              <CustomImage
                 src="/assets/modal/close.svg"
                 alt="box"
                 width={16}
@@ -68,6 +68,7 @@ const Modal: FC<ModalProps> = ({
                 style={{ fontSize: "18px" }}
                 width="169px"
                 height="46px"
+                onClick={!handlers || !handlers[0] ? () => {} : handlers[0]}
               >
                 {buttonValues && buttonValues[0]}
               </GlobalGreenButton>

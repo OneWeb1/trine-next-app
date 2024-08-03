@@ -2,7 +2,7 @@
 
 import React, { FC } from "react";
 import styles from "./RoomsView.module.scss";
-import Image from "next/image";
+import CustomImage from "../ui/images/CustomImage/CustomImage";
 
 type RoomsViewProps = {
   roomClick?: () => void;
@@ -31,7 +31,7 @@ const RoomsView: FC<RoomsViewProps> = ({ roomClick }) => {
               className={styles.room}
               onClick={roomClick ? roomClick : () => {}}
             >
-              <Image
+              <CustomImage
                 src="/assets/rooms/image.svg"
                 alt="image"
                 width={93}
@@ -52,7 +52,7 @@ const RoomsView: FC<RoomsViewProps> = ({ roomClick }) => {
                       <span style={{ color: "#fff" }}>20₴</span>
                     </span>
                     <div className={styles.playersInfo}>
-                      <Image
+                      <CustomImage
                         src="/assets/rooms/user.svg"
                         alt="image"
                         width={14}

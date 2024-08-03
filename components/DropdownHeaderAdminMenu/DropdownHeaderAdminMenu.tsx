@@ -1,13 +1,14 @@
 "use client";
 
 import React, { FC, useState } from "react";
-import Image from "next/image";
+
 import styles from "./DropdownHeaderAdminMenu.module.scss";
 import clsx from "clsx";
 
 import useModalsStore from "../modal/store";
 import Link from "next/link";
 import useAdminStore from "@/app/admin/store";
+import CustomImage from "../ui/images/CustomImage/CustomImage";
 
 type DropdownHeaderAdminMenuProps = {
   close: () => void;
@@ -48,7 +49,7 @@ const DropdownHeaderAdminMenu: FC<DropdownHeaderAdminMenuProps> = ({
                 )}
                 onClick={closeMenu}
               >
-                <Image
+                <CustomImage
                   className={styles.avatar}
                   src="/assets/admin/dropdown/account-settings.svg"
                   alt="admin"
@@ -66,7 +67,7 @@ const DropdownHeaderAdminMenu: FC<DropdownHeaderAdminMenuProps> = ({
                   currentPage === "rooms" ? styles.active : ""
                 )}
               >
-                <Image
+                <CustomImage
                   className={styles.avatar}
                   src="/assets/admin/dropdown/workshop.svg"
                   alt="admin"
@@ -83,7 +84,7 @@ const DropdownHeaderAdminMenu: FC<DropdownHeaderAdminMenuProps> = ({
                   currentPage === "referrals" ? styles.active : ""
                 )}
               >
-                <Image
+                <CustomImage
                   className={styles.avatar}
                   src="/assets/admin/dropdown/refer.svg"
                   alt="admin"
@@ -97,7 +98,7 @@ const DropdownHeaderAdminMenu: FC<DropdownHeaderAdminMenuProps> = ({
               className={styles.dropdownMenuItem}
               onClick={showModalTransferManager}
             >
-              <Image
+              <CustomImage
                 className={styles.avatar}
                 src="/assets/admin/dropdown/digital-payment.svg"
                 alt="admin"
@@ -113,7 +114,7 @@ const DropdownHeaderAdminMenu: FC<DropdownHeaderAdminMenuProps> = ({
                   currentPage === "wheel-fortune" ? styles.active : ""
                 )}
               >
-                <Image
+                <CustomImage
                   className={styles.avatar}
                   src="/assets/admin/dropdown/wheel-of-fortune.svg"
                   alt="admin"
@@ -126,7 +127,7 @@ const DropdownHeaderAdminMenu: FC<DropdownHeaderAdminMenuProps> = ({
 
             <Link href="/">
               <div className={styles.dropdownMenuItem}>
-                <Image
+                <CustomImage
                   className={styles.avatar}
                   src="/assets/admin/dropdown/home.svg"
                   alt="out"

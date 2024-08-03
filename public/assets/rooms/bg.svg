@@ -4,13 +4,13 @@
 </g>
 <defs>
 <filter id="filter0_d_42_130" x="0" y="-16" width="334.5" height="118" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feFlood flood-opacity="0" result="BackgroundCustomImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dx="-2"/>
 <feGaussianBlur stdDeviation="8"/>
 <feComposite in2="hardAlpha" operator="out"/>
 <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.63 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_42_130"/>
+<feBlend mode="normal" in2="BackgroundCustomImageFix" result="effect1_dropShadow_42_130"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_42_130" result="shape"/>
 </filter>
 </defs>

@@ -6,9 +6,11 @@ import SwitchBox from "../components/SwitchBox/SwitchBox";
 import NextBox from "../components/NextBox/NextBox";
 
 import useModalsStore from "../store";
+import useAuthStore from "@/components/auth/store";
 
 const ModalSettings = () => {
   const modalsStore = useModalsStore((state) => state);
+  const authStore = useAuthStore((state) => state);
 
   const showModalChangeAvatar = () => {
     modalsStore.addOpenModal({ name: "ModalChangeAvatar" });
@@ -22,8 +24,15 @@ const ModalSettings = () => {
     modalsStore.addOpenModal({ name: "ModalChangePassword" });
   };
 
+  const logout = () => {
+    authStore.logout();
+    window.location.href = "/auth/login";
+  };
+
   const showModalConfirm = () => {
     modalsStore.setConfirmText("Підтвердити вихід з облікового запису?");
+    modalsStore.setConfirmHandlers([logout]);
+
     modalsStore.addOpenModal({ name: "ModalConfirm" });
   };
 

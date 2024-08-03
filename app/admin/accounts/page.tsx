@@ -11,6 +11,7 @@ import useModalsStore from "@/components/modal/store";
 import AdminTable from "@/components/tables/AdminTableAccounts/AdminTableAccounts";
 import AdminTableAccounts from "@/components/tables/AdminTableAccounts/AdminTableAccounts";
 import ModalsView from "@/components/ModalsView/ModalsView";
+import AdminRoute from "@/hoc/withAdmin";
 // import Pagination from "@/components/Pagination/Pagination";
 
 const Accounts = () => {
@@ -34,26 +35,28 @@ const Accounts = () => {
   }, []);
 
   return (
-    <div className={styles.admin}>
-      <div className={styles.screen}>
-        <div className={styles.background}></div>
-        <div className={styles.main}>
-          <HeaderAdmin />
-          <AdminNavigation title="Облікові записи">
-            <AdminNavigationButton
-              src="/assets/admin/nav/search.svg"
-              onClick={showModalSearchAccountById}
-            />
-            <AdminNavigationButton
-              src="/assets/admin/nav/wallet.svg"
-              onClick={showModalViewBalance}
-            />
-          </AdminNavigation>
-          <AdminTableAccounts onClick={showModalAccountSetting} />
-          <ModalsView />
+    <AdminRoute>
+      <div className={styles.admin}>
+        <div className={styles.screen}>
+          <div className={styles.background}></div>
+          <div className={styles.main}>
+            <HeaderAdmin />
+            <AdminNavigation title="Облікові записи">
+              <AdminNavigationButton
+                src="/assets/admin/nav/search.svg"
+                onClick={showModalSearchAccountById}
+              />
+              <AdminNavigationButton
+                src="/assets/admin/nav/wallet.svg"
+                onClick={showModalViewBalance}
+              />
+            </AdminNavigation>
+            <AdminTableAccounts onClick={showModalAccountSetting} />
+            <ModalsView />
+          </div>
         </div>
       </div>
-    </div>
+    </AdminRoute>
   );
 };
 

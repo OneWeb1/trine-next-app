@@ -3,7 +3,7 @@
 import React, { FC, useState } from "react";
 import styles from "./AdminTableReferrals.module.scss";
 import clsx from "clsx";
-import Image from "next/image";
+
 import Pagination from "../../Pagination/Pagination";
 
 import useModalsStore from "@/components/modal/store";

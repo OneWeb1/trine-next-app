@@ -1,8 +1,9 @@
 import React from "react";
 import styles from "./ModalChangeAvatar.module.scss";
 import Modal from "../Modal";
-import Image from "next/image";
+
 import clsx from "clsx";
+import CustomImage from "@/components/ui/images/CustomImage/CustomImage";
 
 const avatarUrl = "https://trine-game.online/avatar/";
 const avatarNames = ["0", "1", "2", "3", "4", "5", "a1", "a2", "a3"];
@@ -21,7 +22,7 @@ const ModalChangeAvatar = () => {
               key={idx}
               className={clsx(styles.avatar, !idx && styles.currentAvatar)}
             >
-              <Image
+              <CustomImage
                 src={`https://trine-game.online/avatar/${name}`}
                 width={60}
                 height={60}

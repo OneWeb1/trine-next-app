@@ -1,3 +1,4 @@
+import AuthentificatedRoute from "@/hoc/withAuthentificated";
 import { Metadata } from "next";
 import React from "react";
 
@@ -7,7 +8,11 @@ export const metadata: Metadata = {
 };
 
 const RecoveryPassword = () => {
-  return <div>RecoveryPassword</div>;
+  return (
+    <AuthentificatedRoute>
+      <div>RecoveryPassword</div>;
+    </AuthentificatedRoute>
+  );
 };
 
 export default RecoveryPassword;
