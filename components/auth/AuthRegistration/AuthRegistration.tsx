@@ -1,45 +1,85 @@
 "use client";
 
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import styles from "./AuthRegistration.module.scss";
 import AuthInput from "../../ui/inputs/AuthInput/AuthInput";
 import GlobalGreenButton from "../../ui/buttons/GlobalGreenButton";
 import Link from "next/link";
 import AuthLogo from "../AuthLogo/AuthLogo";
+import useAuthStore from "../store";
+import { SubmitHandler, useForm } from "react-hook-form";
+import ErrorText from "@/components/ui/ErrorText/ErrorText";
+
+interface FormData {
+  email: string;
+  password: string;
+}
 
 const AuthRegistration = () => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const authStore = useAuthStore();
+  const {
+    register,
+    formState: { errors, isValid },
+    handleSubmit,
+    reset,
+  } = useForm<FormData>({ mode: "all" });
+
+  const onSubmit: SubmitHandler<FormData> = (data) => {
+    const { email, password } = data;
+    authStore.registration(email, password);
+  };
+
+  useEffect(() => {
+    if (authStore.resetForm) reset();
+  }, [authStore.resetForm, reset]);
 
   return (
     <div className={styles.registration}>
       <div className={styles.screen}>
         <AuthLogo />
-        <form>
-          <AuthInput
-            type="email"
-            value={email}
-            placeholder="Імейл користувача"
-            onChange={(e: ChangeEvent<HTMLInputElement>) => {
-              setEmail(e.target.value);
-            }}
-          />
+        <form noValidate onSubmit={handleSubmit(onSubmit)}>
+          <div>
+            <AuthInput
+              register={register("email", {
+                required: "Заповніть це поле",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "Неправільна адреса електронної пошти",
+                },
+              })}
+              type="email"
+              placeholder="Електронна адреса"
+            />
+            <ErrorText>
+              {errors.email && <p>{`${errors.email.message}`}</p>}
+            </ErrorText>
+          </div>
 
           <div style={{ marginTop: "40px" }}></div>
-
-          <AuthInput
-            type="password"
-            value={password}
-            placeholder="Пароль"
-            isEye={true}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => {
-              setPassword(e.target.value);
-            }}
-          />
+          <div>
+            <AuthInput
+              register={register("password", {
+                required: "Заповніть це поле",
+                minLength: {
+                  value: 6,
+                  message: "Пароль повинен містити не менше 6 символів",
+                },
+              })}
+              type="password"
+              placeholder="Пароль"
+              isEye={true}
+            />
+            <ErrorText>
+              {errors.password && <p>{`${errors.password.message}`}</p>}
+              {authStore.error && (
+                <p>Хмм... Спробуйте ввести другу електронну адресу</p>
+              )}
+            </ErrorText>
+          </div>
 
           <div style={{ marginTop: "65px" }}></div>
 
-          <GlobalGreenButton width="250px" height="46px">
+          <GlobalGreenButton width="250px" height="46px" disabled={!isValid}>
             Реєстрація
           </GlobalGreenButton>
         </form>

@@ -1,67 +1,97 @@
 "use client";
 
-import React, { ChangeEvent, FormEvent, useState } from "react";
 import styles from "./AuthLogin.module.scss";
 
 import AuthLogo from "../AuthLogo/AuthLogo";
 import AuthInput from "../../ui/inputs/AuthInput/AuthInput";
 import GlobalGreenButton from "../../ui/buttons/GlobalGreenButton";
 import Link from "next/link";
-import AuthService from "@/services/AuthService";
 import useAuthStore from "../store";
+import { SubmitHandler, useForm } from "react-hook-form";
+import ErrorText from "@/components/ui/ErrorText/ErrorText";
+import { useEffect, useState } from "react";
+
+interface FormData {
+  email: string;
+  password: string;
+}
 
 const AuthLogin = () => {
   const authStore = useAuthStore();
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
 
-  const login = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("email", email);
-    formData.append("password", password);
-    try {
-      const response = await AuthService.login(formData);
-      if (response.statusText === "OK") {
-        const { access_token, prolong_token } = response.data;
-        authStore.login(access_token, prolong_token);
-        window.location.href = "/";
-      }
-    } catch (e) {
-    } finally {
-    }
+  const {
+    register,
+    formState: { errors, isValid },
+    handleSubmit,
+    reset,
+  } = useForm<FormData>({ mode: "all" });
+
+  const login = async (email: string, password: string) => {
+    authStore.login(email, password);
   };
+
+  const onSubmit: SubmitHandler<FormData> = (data) => {
+    login(data.email, data.password);
+    console.log({ data });
+  };
+
+  useEffect(() => {
+    if (authStore.resetForm) reset();
+  }, [authStore.resetForm, reset]);
 
   return (
     <div className={styles.login}>
+      <div style={{ marginTop: "0px" }}></div>
+
       <div className={styles.screen}>
         <AuthLogo />
-        <form onSubmit={login}>
-          <AuthInput
-            type="email"
-            value={email}
-            placeholder="Імейл користувача"
-            onChange={(e: ChangeEvent<HTMLInputElement>) => {
-              setEmail(e.target.value);
-            }}
-          />
+        <form noValidate onSubmit={handleSubmit(onSubmit)}>
+          <div>
+            <AuthInput
+              register={register("email", {
+                required: "Заповніть це поле",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "Неправільна адреса електронної пошти",
+                },
+              })}
+              type="email"
+              borderError={!!errors.email}
+              placeholder="Електронна адреса"
+            />
+            <ErrorText>
+              {errors.email && <p>{`${errors.email.message}`}</p>}
+            </ErrorText>
+          </div>
 
           <div style={{ marginTop: "40px" }}></div>
 
-          <AuthInput
-            type="password"
-            value={password}
-            placeholder="Пароль"
-            isEye={true}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => {
-              setPassword(e.target.value);
-            }}
-          />
+          <div>
+            <AuthInput
+              register={register("password", {
+                required: "Заповніть це поле",
+                minLength: {
+                  value: 6,
+                  message: "Пароль повинен містити не менше 6 символів",
+                },
+              })}
+              type="password"
+              placeholder="Пароль"
+              borderError={!!errors.password}
+              isEye={true}
+            />
+            <ErrorText>
+              {errors.password && <p>{`${errors.password.message}`}</p>}
+              {authStore.error && (
+                <p>Неправільна електронна адреса або пароль</p>
+              )}
+            </ErrorText>
+          </div>
 
           <div style={{ marginTop: "65px" }}></div>
 
-          <GlobalGreenButton width="250px" height="46px">
-            Увійти
+          <GlobalGreenButton width="250px" height="46px" disabled={!isValid}>
+            {!authStore.loading ? "Увійти" : "Вхід..."}
           </GlobalGreenButton>
         </form>
 

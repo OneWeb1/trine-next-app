@@ -1,14 +1,16 @@
 "use client";
 
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import styles from "./RoomsView.module.scss";
 import CustomImage from "../ui/images/CustomImage/CustomImage";
+import useRoomsStore from "@/app/store/RoomsStore";
 
 type RoomsViewProps = {
   roomClick?: () => void;
 };
 
 const RoomsView: FC<RoomsViewProps> = ({ roomClick }) => {
+  const roomsStore = useRoomsStore();
   const ns = [
     "Green",
     "Green",
@@ -20,6 +22,10 @@ const RoomsView: FC<RoomsViewProps> = ({ roomClick }) => {
     "Violet",
     "Violet",
   ];
+
+  useEffect(() => {
+    roomsStore.getRoomsData();
+  }, []);
 
   return (
     <div className={styles.roomsView}>

@@ -42,3 +42,8 @@
     z-index: 0;
   }
 }
+
+.disabled {
+  filter: grayscale(90%);
+  cursor: no-drop;
+}

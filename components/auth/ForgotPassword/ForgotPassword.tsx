@@ -6,24 +6,50 @@ import AuthLogo from "../AuthLogo/AuthLogo";
 import AuthInput from "../../ui/inputs/AuthInput/AuthInput";
 import GlobalGreenButton from "../../ui/buttons/GlobalGreenButton";
 import Link from "next/link";
+import { SubmitHandler, useForm } from "react-hook-form";
+import useAuthStore from "../store";
+import ErrorText from "@/components/ui/ErrorText/ErrorText";
+
+interface FormData {
+  email: string;
+  password: string;
+}
 
 const Forgot = () => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const authStore = useAuthStore();
+  const {
+    register,
+    formState: { errors, isValid },
+    handleSubmit,
+    reset,
+  } = useForm<FormData>({ mode: "all" });
+
+  const onSubmit: SubmitHandler<FormData> = (data) => {
+    const { email } = data;
+    // authStore.registration(email, password);
+  };
 
   return (
     <div className={styles.forgotPassword}>
       <div className={styles.screen}>
         <AuthLogo />
-        <form>
-          <AuthInput
-            type="email"
-            value={email}
-            placeholder="Введіть імейл користувача"
-            onChange={(e: ChangeEvent<HTMLInputElement>) => {
-              setEmail(e.target.value);
-            }}
-          />
+        <form noValidate onSubmit={handleSubmit(onSubmit)}>
+          <div>
+            <AuthInput
+              register={register("email", {
+                required: "Заповніть це поле",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "Неправільна адреса електронної пошти",
+                },
+              })}
+              type="email"
+              placeholder="Електронна адреса"
+            />
+            <ErrorText>
+              {errors.email && <p>{`${errors.email.message}`}</p>}
+            </ErrorText>
+          </div>
 
           <div style={{ marginTop: "50px" }}></div>
 
@@ -34,7 +60,7 @@ const Forgot = () => {
 
           <div style={{ marginTop: "35px" }}></div>
 
-          <GlobalGreenButton width="250px" height="46px">
+          <GlobalGreenButton width="250px" height="46px" disabled={!isValid}>
             Відправити
           </GlobalGreenButton>
         </form>

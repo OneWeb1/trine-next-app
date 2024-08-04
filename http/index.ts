@@ -13,7 +13,9 @@ const $api = axios.create({
 });
 
 $api.interceptors.request.use((config: InternalAxiosRequestConfig) => {
-  config.headers.Authorization = `Bearer ${localStorage.getItem("token")}`;
+  config.headers.Authorization = `Bearer ${localStorage.getItem(
+    "accessToken"
+  )}`;
   return config;
 });
 
@@ -31,17 +33,13 @@ $api.interceptors.response.use(
     ) {
       originRequest._isRetry = true;
       try {
-        const prolongToken = localStorage.getItem("prolong_token");
-        const isRememberMe = JSON.parse(
-          localStorage.getItem("isRememberMe") || "false"
-        );
-        if (!isRememberMe) {
-          logout();
-        }
+        const prolongToken = localStorage.getItem("prolongToken");
+
+        logout();
         try {
           const { data } = await AuthService.prolong(String(prolongToken));
-          localStorage.setItem("token", data.access_token);
-          localStorage.setItem("prolong_token", data.prolong_token);
+          localStorage.setItem("accessToken", data.access_token);
+          localStorage.setItem("prolongToken", data.prolong_token);
         } catch (e) {
           if (e instanceof AxiosError && e.response?.status === 403) {
             logout();
@@ -68,9 +66,9 @@ $api.interceptors.response.use(
 );
 
 function logout() {
-  localStorage.removeItem("token");
-  localStorage.removeItem("prolong_token");
-  window.location.href = "/login";
+  localStorage.removeItem("accessToken");
+  localStorage.removeItem("prolongToken");
+  window.location.href = "/auth/login";
 }
 
 export default $api;
