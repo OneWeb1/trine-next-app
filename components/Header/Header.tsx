@@ -17,7 +17,9 @@ import CustomImage from "../ui/images/CustomImage/CustomImage";
 
 const Header = () => {
   const modalsStore = useModalsStore((state) => state);
-  const userStore = useUserStore((state) => state);
+  const { profile, loading, error, getProfile } = useUserStore(
+    (state) => state
+  );
 
   const [isOpenDropdownMenu, setIsOpenDropdownMenu] = useState<boolean>(false);
 
@@ -28,8 +30,8 @@ const Header = () => {
   };
 
   useEffect(() => {
-    userStore.getUser();
-  }, []);
+    getProfile();
+  }, [getProfile]);
 
   return (
     <header className={styles.header}>
@@ -49,7 +51,7 @@ const Header = () => {
             width={20}
             height={20}
           />
-          <div className={styles.money}>4455</div>
+          <div className={styles.money}>{profile?.balance}</div>
           <button
             className={styles.buttonAdd}
             onClick={openModalBalanceReplenishment}
@@ -68,7 +70,7 @@ const Header = () => {
         >
           <CustomImage
             className={styles.avatar}
-            src="/assets/home/avatar.svg"
+            src={`https://trine-game.online/avatar/${profile?.avatar_id}`}
             alt="avatar"
             width={22}
             height={22}

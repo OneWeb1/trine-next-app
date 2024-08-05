@@ -60,7 +60,7 @@ const Forgot = () => {
 
           <div style={{ marginTop: "35px" }}></div>
 
-          <GlobalGreenButton width="250px" height="46px" disabled={!isValid}>
+          <GlobalGreenButton width="250px" height="46px">
             Відправити
           </GlobalGreenButton>
         </form>

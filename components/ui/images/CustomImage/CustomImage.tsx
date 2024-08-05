@@ -39,7 +39,7 @@ const CustomImage: FC<CustomImageProps> = ({
       className={className}
       style={style}
       priority
-      loading="eager"
+      quality={100}
     />
   );
 };

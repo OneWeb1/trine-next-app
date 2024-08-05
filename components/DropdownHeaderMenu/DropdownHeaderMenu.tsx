@@ -1,13 +1,16 @@
 "use client";
 
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 import styles from "./DropdownHeaderMenu.module.scss";
+import Marquee from "react-double-marquee";
 
 import useModalsStore from "../modal/store";
 import useAuthStore from "../auth/store";
 import Link from "next/link";
 import CustomImage from "../ui/images/CustomImage/CustomImage";
+import useUserStore from "@/app/store/userStore";
+import { clsx } from "clsx";
 
 type DropdownHeaderMenuProps = {
   close: () => void;
@@ -17,6 +20,9 @@ const DropdownHeaderMenu: FC<DropdownHeaderMenuProps> = ({ close }) => {
   const modalsStore = useModalsStore((state) => state);
   const authStore = useAuthStore((state) => state);
   const [isClose, setIsClose] = useState<boolean>(false);
+  const [isMarquee, setIsMarquee] = useState<boolean>(false);
+
+  const { profile, loading } = useUserStore((state) => state);
 
   const closeMenu = () => {
     setIsClose(true);
@@ -48,40 +54,67 @@ const DropdownHeaderMenu: FC<DropdownHeaderMenuProps> = ({ close }) => {
     modalsStore.addOpenModal({ name: "ModalConfirm" });
   };
 
+  useEffect(() => {
+    console.log(profile);
+  }, []);
+
   return (
     <>
       <div
-        className={`${styles.overflowWrapper} ${isClose ? styles.hide : ""}`}
+        className={clsx(
+          styles.overflowWrapper,
+          isClose ? styles.hide : "",
+          profile?.is_admin ? styles.overflowHeightAdmin : styles.overflowHeight
+        )}
       >
-        <div className={styles.dropdownMenu}>
+        <div
+          className={clsx(
+            styles.dropdownMenu,
+            profile?.is_admin ? styles.adminHeight : styles.userHeight
+          )}
+        >
           <div className={styles.menu}>
             <div className={styles.dropdownMenuProfile}>
-              <div className={styles.wrapper}>
+              <div
+                className={styles.wrapper}
+                onMouseOver={() => setIsMarquee(true)}
+                onMouseOut={() => setIsMarquee(false)}
+              >
                 <CustomImage
                   className={styles.avatar}
-                  src="/assets/home/avatar.svg"
+                  src={`https://trine-game.online/avatar/${profile?.avatar_id}`}
                   alt="avatar"
                   width={30}
                   height={30}
                 />
                 <div className={styles.profileInfo}>
-                  <div className={styles.username}>Гравець45656</div>
-                  <div className={styles.email}>test.email@gmail.com</div>
+                  <div className={styles.username}>
+                    {isMarquee && (profile?.nickname.length || 0) > 16 ? (
+                      <Marquee direction="left" delay={0} speed={0.03}>
+                        {profile?.nickname}
+                      </Marquee>
+                    ) : (
+                      <span>{profile?.nickname}</span>
+                    )}
+                  </div>
+                  <div className={styles.email}>{profile?.email}</div>
                 </div>
               </div>
             </div>
-            <Link href="/admin/accounts">
-              <div className={styles.dropdownMenuItem}>
-                <CustomImage
-                  className={styles.avatar}
-                  src="/assets/home/admin.svg"
-                  alt="admin"
-                  width={20}
-                  height={20}
-                />
-                Адмін панель
-              </div>
-            </Link>
+            {profile?.is_admin && (
+              <Link href="/admin/accounts">
+                <div className={styles.dropdownMenuItem}>
+                  <CustomImage
+                    className={styles.avatar}
+                    src="/assets/home/admin.svg"
+                    alt="admin"
+                    width={20}
+                    height={20}
+                  />
+                  Адмін панель
+                </div>
+              </Link>
+            )}
 
             <div
               className={styles.dropdownMenuItem}

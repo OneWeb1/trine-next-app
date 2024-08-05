@@ -27,12 +27,12 @@ const useAuthStore = create<IAuthState>((set, get) => ({
   isAuthenticated: false,
 
   setLoading: (isLoading: boolean) => {
-    return set({
+    set({
       loading: isLoading,
     });
   },
   setResetForm: (resetForm: boolean) => {
-    return set({
+    set({
       resetForm: true,
     });
   },

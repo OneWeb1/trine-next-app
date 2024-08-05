@@ -68,7 +68,14 @@ const Modal: FC<ModalProps> = ({
                 style={{ fontSize: "18px" }}
                 width="169px"
                 height="46px"
-                onClick={!handlers || !handlers[0] ? () => {} : handlers[0]}
+                onClick={
+                  !handlers || !handlers[0]
+                    ? close
+                    : () => {
+                        close();
+                        handlers[0]();
+                      }
+                }
               >
                 {buttonValues && buttonValues[0]}
               </GlobalGreenButton>

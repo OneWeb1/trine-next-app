@@ -11,6 +11,10 @@ export default class UserService {
     return $api.get<string[]>("/profile/avatars");
   }
 
+  static async changeAvatar(id: string): Promise<AxiosResponse<string>> {
+    return $api.post<string>(`/profile/change_avatar?id=${id}`);
+  }
+
   static async changeNickname(name: string): Promise<AxiosResponse<string>> {
     return $api.post<string>(`/profile/change_nickname?nickname=${name}`);
   }

@@ -1,31 +1,22 @@
 import { RoomsPageDataResponse } from "@/models/response/GameResponse";
 import GameService from "@/services/GameService";
 import create from "zustand";
+import UserApi from "../api/user/UserApi";
+import RoomsApi from "../api/rooms/RoomsApi";
 
 interface IRoomsStore {
   rooms: RoomsPageDataResponse;
-  getRoomsData: () => void;
+  loading: boolean;
+  error: any;
+  getRoomsData: () => Promise<void>;
 }
 
 const useRoomsStore = create<IRoomsStore>((set) => ({
   rooms: {} as RoomsPageDataResponse,
-  isAuthenticated: false,
+  loading: false,
+  error: null,
   getRoomsData: async () => {
-    try {
-      const { data: rooms } = await GameService.getRooms({
-        offset: 0,
-        limit: 20,
-      });
-      console.log(rooms);
-
-      return set({
-        rooms: rooms,
-      });
-    } catch (e) {
-      return set({
-        rooms: {} as RoomsPageDataResponse,
-      });
-    }
+    await RoomsApi.getRoomsData(set);
   },
 }));
 
