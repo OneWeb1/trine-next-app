@@ -61,6 +61,7 @@ class AccountsApi {
 
     try {
       await AccountsService.removeAccountById(id);
+      if (typeof window === "undefined") return;
       this.getAccounts(
         Number(localStorage.getItem("accounts-page")) * limit - limit,
         limit,
