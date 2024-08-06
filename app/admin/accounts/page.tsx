@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styles from "./../page.module.scss";
 import AdminNavigation, {
   AdminNavigationButton,
@@ -8,7 +8,6 @@ import AdminNavigation, {
 import HeaderAdmin from "@/components/HeaderAdmin/HeaderAdmin";
 import useAdminStore from "../store";
 import useModalsStore from "@/components/modal/store";
-import AdminTable from "@/components/tables/AdminTableAccounts/AdminTableAccounts";
 import AdminTableAccounts from "@/components/tables/AdminTableAccounts/AdminTableAccounts";
 import ModalsView from "@/components/ModalsView/ModalsView";
 import AdminRoute from "@/hoc/withAdmin";
