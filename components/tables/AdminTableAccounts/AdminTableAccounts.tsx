@@ -132,7 +132,7 @@ const AdminTableAccounts: FC<AdminTableAccountsProps> = ({ onClick }) => {
           totalCount={accountsNumber}
           pageSize={15}
           onPageChange={(page) => {
-            localStorage.setItem("accounts-page", String(page));
+            if (window) localStorage.setItem("accounts-page", String(page));
             setCurrentPage(page);
           }}
         />
