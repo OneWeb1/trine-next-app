@@ -1,3 +1,5 @@
+"use client";
+
 import AccountsService from "@/services/admin/AccountsService";
 
 class AccountsApi {
