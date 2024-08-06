@@ -37,7 +37,7 @@ class AuthApi {
   }
 
   static async login(email: string, password: string, set: any, get: any) {
-    const { error, setLoading, setResetForm } = get();
+    const { error, setLoading } = get();
     const formData = new FormData();
     formData.append("email", email);
     formData.append("password", password);

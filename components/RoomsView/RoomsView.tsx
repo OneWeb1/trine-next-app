@@ -46,57 +46,57 @@ const RoomsView: FC<RoomsViewProps> = ({ roomClick }) => {
               innerCircleColor="#4fa94d"
               barColor="#4fa94d"
               ariaLabel="circles-with-bar-loading"
-              wrapperStyle={{}}
               wrapperClass=""
               visible={true}
             />
           </div>
         )}
-        {items?.map((room, i) => (
-          <>
-            <div
-              className={styles.room}
-              onClick={roomClick ? roomClick : () => {}}
-            >
-              <CustomImage
-                src="/assets/rooms/image.svg"
-                alt="image"
-                width={93}
-                height={90}
-              />
-              <div className={styles.rightWrapper}>
-                <div
-                  className={`${styles.titleWrapper} ${
-                    styles["titleWrapper" + ns[i % 3]]
-                  }`}
-                >
-                  <div className={styles.title}>{room.name}</div>
-                </div>
-                <div className={styles.info}>
-                  <div className={styles.leftChild}>
-                    <span className={styles.label}>
-                      макс. сума ставки{" "}
-                      <span style={{ color: "#fff" }}>{room.max_bid}₴</span>
-                    </span>
-                    <div className={styles.playersInfo}>
-                      <CustomImage
-                        src="/assets/rooms/user.svg"
-                        alt="image"
-                        width={14}
-                        height={14}
-                      />
-                      0/{room.max_players}
-                    </div>
+        {!loading &&
+          items?.map((room, i) => (
+            <>
+              <div
+                className={styles.room}
+                onClick={roomClick ? roomClick : () => {}}
+              >
+                <CustomImage
+                  src="/assets/rooms/image.svg"
+                  alt="image"
+                  width={93}
+                  height={90}
+                />
+                <div className={styles.rightWrapper}>
+                  <div
+                    className={`${styles.titleWrapper} ${
+                      styles["titleWrapper" + ns[i % 3]]
+                    }`}
+                  >
+                    <div className={styles.title}>{room.name}</div>
                   </div>
-                  <div className={styles.rightChild}>
-                    <span className={styles.label}>мин. сума входу</span>
-                    <div className={styles.price}>{room.join_tax}₴</div>
+                  <div className={styles.info}>
+                    <div className={styles.leftChild}>
+                      <span className={styles.label}>
+                        макс. сума ставки{" "}
+                        <span style={{ color: "#fff" }}>{room.max_bid}₴</span>
+                      </span>
+                      <div className={styles.playersInfo}>
+                        <CustomImage
+                          src="/assets/rooms/user.svg"
+                          alt="image"
+                          width={14}
+                          height={14}
+                        />
+                        0/{room.max_players}
+                      </div>
+                    </div>
+                    <div className={styles.rightChild}>
+                      <span className={styles.label}>мин. сума входу</span>
+                      <div className={styles.price}>{room.join_tax}₴</div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </>
-        ))}
+            </>
+          ))}
       </div>
     </div>
   );

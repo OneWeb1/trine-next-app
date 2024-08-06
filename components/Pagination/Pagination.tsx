@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import { usePagination, DOTS } from "./../../hooks/usePagination";
+import { usePagination, DOTS } from "../../hooks/usePagination";
 import "./Pagination.scss";
 import CustomImage from "../ui/images/CustomImage/CustomImage";
 
@@ -50,6 +50,7 @@ const Pagination = (props: PaginationProps) => {
       className={classnames("pagination-container", { [className]: className })}
     >
       <li
+        style={{ marginTop: "2px" }}
         className={classnames("pagination-item", {
           disabled: currentPage === 1,
         })}
@@ -86,6 +87,7 @@ const Pagination = (props: PaginationProps) => {
         );
       })}
       <li
+        style={{ marginTop: "2px" }}
         className={classnames("pagination-item", {
           disabled: currentPage === lastPage,
         })}

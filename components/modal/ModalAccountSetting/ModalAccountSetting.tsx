@@ -6,9 +6,11 @@ import SwitchBox from "../components/SwitchBox/SwitchBox";
 import NextBox from "../components/NextBox/NextBox";
 
 import useModalsStore from "../store";
+import useAccountsStore from "@/app/store/admin/AccountsStore";
 
 const ModalAccountSetting = () => {
   const modalsStore = useModalsStore((state) => state);
+  const { menuAccount, removeAccount } = useAccountsStore((state) => state);
 
   const showModalAccountChangeBalance = () => {
     modalsStore.addOpenModal({ name: "ModalAccountChangeBalance" });
@@ -20,6 +22,7 @@ const ModalAccountSetting = () => {
 
   const showModalConfirm = () => {
     modalsStore.setConfirmText("Підтвердити видалення облікового запису?");
+    modalsStore.setConfirmHandlers([() => removeAccount(menuAccount.id)]);
     modalsStore.addOpenModal({ name: "ModalConfirm" });
   };
 
