@@ -12,6 +12,7 @@ import useAccountsStore from "@/app/store/admin/AccountsStore";
 import { AdminAccountResponse } from "@/models/response/admin/AccountsResponse";
 import { CirclesWithBar } from "react-loader-spinner";
 import { profile } from "console";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 type AdminTableAccountsProps = {
   onClick?: () => void;
@@ -75,9 +76,11 @@ const AdminTableAccounts: FC<AdminTableAccountsProps> = ({ onClick }) => {
     setMenuAccount,
     getAccounts,
   } = useAccountsStore();
-  const [currentPage, setCurrentPage] = useState<number>(
-    Number(localStorage.getItem("accounts-page")) || 1
+  const [pageNumber, setPageNumber] = useLocalStorage<number>(
+    "accounts-page",
+    8
   );
+  const [currentPage, setCurrentPage] = useState<number>(pageNumber);
 
   useEffect(() => {
     getAccounts(currentPage * limit - limit, limit);
@@ -132,8 +135,7 @@ const AdminTableAccounts: FC<AdminTableAccountsProps> = ({ onClick }) => {
           totalCount={accountsNumber}
           pageSize={15}
           onPageChange={(page) => {
-            if (typeof window !== "undefined")
-              localStorage.setItem("accounts-page", String(page));
+            setPageNumber(page);
             setCurrentPage(page);
           }}
         />
